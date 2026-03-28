@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Star Hindis — Complete Digital Media Ecosystem 🌍</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Rajdhani:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#D32F2F;--navy:#0D1B3E;--gold:#F5A623;--sky:#1565C0;
+  --accent:#FF6B35;--dark:#060E22;--green:#2E7D32;--purple:#6A1B9A;
+  --teal:#00695C;--white:#fff;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Rajdhani',sans-serif;background:var(--navy);color:#fff;overflow-x:hidden}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--dark)}
+::-webkit-scrollbar-thumb{background:var(--red);border-radius:3px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:.8rem 2.5rem;background:rgba(6,14,34,.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(245,166,35,.15)}
+.nav-logo{font-family:'Playfair Display';font-size:1.4rem;font-weight:900;color:#fff;text-decoration:none;display:flex;align-items:center;gap:.4rem}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:1.2rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.78rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;transition:color .2s;padding:.3rem .5rem;border-radius:6px}
+.nav-links a:hover{color:var(--gold)}
+.nav-actions{display:flex;gap:.6rem;align-items:center}
+.nav-btn{padding:.42rem 1rem;border-radius:50px;font-family:'Rajdhani';font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border:none;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center;gap:.3rem}
+.nav-btn.primary{background:linear-gradient(135deg,var(--red),var(--accent));color:#fff}
+.nav-btn.primary:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(211,47,47,.4)}
+.nav-btn.outline{background:transparent;color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.2)}
+.nav-btn.outline:hover{border-color:var(--gold);color:var(--gold)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:.4rem}
+.hamburger span{width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
+@media(max-width:980px){.nav-links{display:none}.hamburger{display:flex}}
+.mobile-menu{display:none;position:fixed;top:57px;left:0;right:0;background:rgba(6,14,34,.98);backdrop-filter:blur(20px);padding:1.5rem;z-index:499;border-bottom:1px solid rgba(245,166,35,.15)}
+.mobile-menu.open{display:block}
+.mobile-menu a{display:block;color:rgba(255,255,255,.75);text-decoration:none;font-size:.95rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.65rem 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.mobile-menu a:hover{color:var(--gold)}
+
+/* TICKER */
+.ticker-wrap{background:var(--red);padding:.48rem 0;overflow:hidden;white-space:nowrap;margin-top:57px}
+.ticker{display:inline-block;animation:ticker 50s linear infinite;font-size:.75rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+.ticker span{margin:0 1.8rem;opacity:.9}
+.ticker span::before{content:'★  ';color:var(--gold)}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding:5rem 2rem}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(21,101,192,.35) 0%,transparent 65%),radial-gradient(ellipse 60% 40% at 10% 80%,rgba(211,47,47,.2) 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 90% 60%,rgba(245,166,35,.15) 0%,transparent 55%),linear-gradient(180deg,#0D1B3E 0%,#060E22 100%)}
+.stars{position:absolute;inset:0;pointer-events:none}
+.star{position:absolute;border-radius:50%;background:#fff;animation:twinkle 3s infinite alternate}
+@keyframes twinkle{from{opacity:.2;transform:scale(.8)}to{opacity:1;transform:scale(1.3)}}
+.hero-content{position:relative;z-index:2;max-width:960px}
+.hero-badge{display:inline-block;background:rgba(245,166,35,.12);border:1px solid rgba(245,166,35,.4);color:var(--gold);padding:.38rem 1.2rem;border-radius:50px;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.4rem;animation:fadeUp .8s ease both}
+.hero-title{font-family:'Playfair Display';font-size:clamp(2.6rem,6vw,5rem);font-weight:900;line-height:1.1;margin-bottom:.7rem;animation:fadeUp .9s .12s ease both}
+.hero-title .red{color:var(--red)}
+.hero-title .gold{color:var(--gold)}
+.hero-local{font-size:1rem;color:rgba(255,255,255,.48);font-style:italic;margin-bottom:1.1rem;animation:fadeUp .9s .2s ease both}
+.hero-sub{font-size:1.05rem;line-height:1.75;color:rgba(255,255,255,.6);margin-bottom:2.2rem;animation:fadeUp 1s .28s ease both}
+.hero-btns{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;animation:fadeUp 1s .38s ease both}
+.hero-stats{display:flex;justify-content:center;gap:2.2rem;margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.1);animation:fadeUp 1s .5s ease both;flex-wrap:wrap}
+.stat h3{font-family:'Playfair Display';font-size:2rem;color:var(--gold);font-weight:900}
+.stat p{font-size:.72rem;color:rgba(255,255,255,.42);letter-spacing:.09em;text-transform:uppercase}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+
+/* BUTTONS */
+.btn{padding:.72rem 1.6rem;border-radius:50px;font-family:'Rajdhani';font-weight:700;font-size:.88rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:all .25s;display:inline-flex;align-items:center;gap:.4rem}
+.btn-red{background:linear-gradient(135deg,var(--red),#FF5252);color:#fff;box-shadow:0 4px 18px rgba(211,47,47,.3)}
+.btn-red:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(211,47,47,.5)}
+.btn-gold{background:linear-gradient(135deg,var(--gold),#FFC947);color:var(--navy)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(245,166,35,.4)}
+.btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.3)}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+.btn-green{background:linear-gradient(135deg,var(--green),#43A047);color:#fff}
+.btn-green:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(46,125,50,.4)}
+.btn-sky{background:linear-gradient(135deg,var(--sky),#1E88E5);color:#fff}
+.btn-sky:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(21,101,192,.4)}
+.btn-sm{padding:.42rem 1rem;font-size:.78rem}
+
+/* SOCIAL TOP BAR */
+.social-bar{background:rgba(6,14,34,.92);border-bottom:1px solid rgba(255,255,255,.06);padding:.75rem 2rem;display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap}
+.social-bar-label{color:var(--gold);font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.soc-lnk{display:inline-flex;align-items:center;gap:.3rem;color:rgba(255,255,255,.62);text-decoration:none;font-size:.78rem;font-weight:600;padding:.28rem .7rem;border-radius:50px;border:1px solid rgba(255,255,255,.1);transition:all .2s}
+.soc-lnk:hover{color:#fff;border-color:var(--gold);background:rgba(245,166,35,.1)}
+
+/* SECTION BASE */
+section{padding:5rem 2rem}
+.container{max-width:1260px;margin:0 auto}
+.sec-label{font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem}
+.sec-title{font-family:'Playfair Display';font-size:clamp(1.7rem,3.5vw,2.7rem);font-weight:900;line-height:1.2;margin-bottom:.7rem}
+.sec-desc{color:rgba(255,255,255,.5);font-size:.95rem;max-width:540px;line-height:1.75}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:2.5rem}
+
+/* LIVE STATS */
+.stats-section{background:linear-gradient(135deg,rgba(211,47,47,.12),rgba(21,101,192,.12));border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);padding:2.5rem 2rem}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1.5rem;max-width:1260px;margin:0 auto}
+.stat-card{text-align:center;padding:1.2rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px}
+.stat-card .num{font-family:'Playfair Display';font-size:2rem;font-weight:900;color:var(--gold)}
+.stat-card .lbl{font-size:.72rem;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.08em;margin-top:.3rem}
+
+/* CHANNELS */
+.channels-section{background:var(--dark)}
+.cat-tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin:1.5rem 0}
+.cat-tab{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.58);padding:.3rem .8rem;border-radius:50px;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:all .2s}
+.cat-tab:hover,.cat-tab.active{background:var(--red);border-color:var(--red);color:#fff}
+.ch-search{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:50px;padding:.5rem 1.2rem;color:#fff;font-family:'Rajdhani';font-size:.9rem;outline:none;width:220px;transition:border-color .2s}
+.ch-search:focus{border-color:var(--gold)}
+.ch-search::placeholder{color:rgba(255,255,255,.35)}
+.channels-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:1rem}
+.ch-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:17px;overflow:hidden;transition:all .3s;position:relative;cursor:pointer}
+.ch-card:hover{transform:translateY(-5px);border-color:rgba(245,166,35,.3);box-shadow:0 14px 36px rgba(0,0,0,.4)}
+.ch-header{height:72px;display:flex;align-items:center;padding:0 1rem;gap:.7rem;position:relative}
+.ch-emoji{font-size:1.8rem}
+.ch-cat-badge{position:absolute;top:.6rem;right:.6rem;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.65);padding:.16rem .5rem;border-radius:50px;font-size:.58rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+.ch-body{padding:.85rem 1rem 1rem}
+.ch-name{font-family:'Playfair Display';font-size:.93rem;font-weight:700;margin-bottom:.18rem}
+.ch-en{color:rgba(255,255,255,.55);font-size:.75rem;line-height:1.5;margin-bottom:.2rem}
+.ch-local{color:var(--gold);font-size:.73rem;line-height:1.5;margin-bottom:.8rem;opacity:.82}
+.yt-btn{display:inline-flex;align-items:center;gap:.3rem;background:#FF0000;color:#fff;padding:.26rem .7rem;border-radius:50px;font-size:.7rem;font-weight:700;text-decoration:none;transition:all .2s}
+.yt-btn:hover{transform:scale(1.05);box-shadow:0 4px 12px rgba(255,0,0,.4)}
+
+/* SACRED */
+.sacred-section{background:linear-gradient(135deg,#1a0800,#0a1500,#001515);position:relative;overflow:hidden}
+.sacred-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 50% 50%,rgba(212,175,55,.07) 0%,transparent 70%)}
+.sacred-card{max-width:750px;margin:2.5rem auto 0;text-align:center;background:linear-gradient(135deg,rgba(212,175,55,.08),rgba(0,0,0,.3));border:1px solid rgba(212,175,55,.28);border-radius:24px;padding:2.8rem 2rem;position:relative}
+.sacred-icon{font-size:3.2rem;margin-bottom:.8rem;display:block}
+.sacred-name{font-family:'Playfair Display';font-size:1.8rem;font-weight:900;color:#D4AF37;margin-bottom:.55rem}
+.sacred-desc{color:rgba(255,255,255,.6);font-size:.95rem;line-height:1.8;max-width:500px;margin:0 auto 1.8rem}
+.sacred-btns{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap}
+
+/* ACADEMY */
+.academy-section{background:linear-gradient(180deg,#060E22 0%,#0A1630 100%)}
+.courses-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.2rem;margin-top:2.5rem}
+.course-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:18px;overflow:hidden;transition:all .3s;cursor:pointer}
+.course-card:hover{transform:translateY(-5px);border-color:rgba(245,166,35,.3);box-shadow:0 16px 40px rgba(0,0,0,.4)}
+.course-img{height:110px;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative}
+.course-badge{position:absolute;top:.6rem;right:.6rem;padding:.2rem .6rem;border-radius:50px;font-size:.62rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.badge-hot{background:#FF5252;color:#fff}
+.badge-new{background:var(--gold);color:var(--navy)}
+.badge-free{background:var(--green);color:#fff}
+.course-body{padding:1.1rem}
+.course-title{font-family:'Playfair Display';font-size:1rem;font-weight:700;margin-bottom:.4rem}
+.course-desc{color:rgba(255,255,255,.5);font-size:.78rem;line-height:1.6;margin-bottom:.9rem}
+.course-footer{display:flex;align-items:center;justify-content:space-between}
+.course-price{font-size:1.1rem;font-weight:700;color:var(--gold)}
+.course-price s{color:rgba(255,255,255,.3);font-size:.8rem;margin-right:.3rem}
+.course-meta{font-size:.72rem;color:rgba(255,255,255,.4)}
+
+/* CREATOR NETWORK */
+.creator-section{background:var(--dark)}
+.creator-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;margin-top:2.5rem}
+@media(max-width:768px){.creator-grid{grid-template-columns:1fr}}
+.how-steps{display:flex;flex-direction:column;gap:1rem;margin-top:1.5rem}
+.step{display:flex;gap:1rem;align-items:flex-start;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:1rem 1.2rem;transition:all .3s}
+.step:hover{border-color:var(--gold);background:rgba(245,166,35,.05)}
+.step-num{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--red),var(--accent));display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.9rem;flex-shrink:0}
+.step-title{font-weight:700;font-size:.95rem;margin-bottom:.2rem}
+.step-desc{font-size:.8rem;color:rgba(255,255,255,.45)}
+.creator-stats{background:rgba(255,255,255,.04);border:1px solid rgba(245,166,35,.2);border-radius:20px;padding:2rem}
+.creator-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem}
+.c-stat{text-align:center;padding:1rem;background:rgba(255,255,255,.04);border-radius:12px}
+.c-stat .v{font-family:'Playfair Display';font-size:1.5rem;font-weight:900;color:var(--gold)}
+.c-stat .l{font-size:.7rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.07em}
+.earnings-chart{margin-top:1.2rem}
+.e-bar{margin-bottom:.7rem}
+.e-label{display:flex;justify-content:space-between;font-size:.78rem;margin-bottom:.3rem;color:rgba(255,255,255,.65)}
+.e-track{height:8px;background:rgba(255,255,255,.08);border-radius:4px;overflow:hidden}
+.e-fill{height:100%;border-radius:4px;transition:width 1.5s ease}
+
+/* BRAND PORTAL */
+.brand-section{background:linear-gradient(135deg,#0A1630,#0D1B3E)}
+.brand-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem;margin-top:2.5rem}
+.brand-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:1.5rem;transition:all .3s;cursor:pointer}
+.brand-card:hover{transform:translateY(-5px);border-color:rgba(245,166,35,.3)}
+.brand-icon{font-size:2.2rem;margin-bottom:.8rem}
+.brand-title{font-family:'Playfair Display';font-size:1rem;font-weight:700;margin-bottom:.4rem}
+.brand-desc{color:rgba(255,255,255,.5);font-size:.8rem;line-height:1.6;margin-bottom:.9rem}
+.brand-price{color:var(--gold);font-size:.82rem;font-weight:700}
+
+/* SUBSCRIPTION PLANS */
+.plans-section{background:var(--dark)}
+.plans-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.2rem;margin-top:2.5rem}
+.plan-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:2rem;position:relative;transition:all .3s}
+.plan-card.featured{border-color:var(--gold);background:rgba(245,166,35,.06)}
+.plan-card.featured::before{content:'⭐ MOST POPULAR';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--navy);padding:.2rem .8rem;border-radius:50px;font-size:.62rem;font-weight:700;letter-spacing:.08em;white-space:nowrap}
+.plan-name{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem}
+.plan-price{font-family:'Playfair Display';font-size:2.4rem;font-weight:900;margin-bottom:.2rem}
+.plan-price span{font-size:.9rem;color:rgba(255,255,255,.4)}
+.plan-period{font-size:.78rem;color:rgba(255,255,255,.4);margin-bottom:1.4rem}
+.plan-features{list-style:none;margin-bottom:1.8rem}
+.plan-features li{font-size:.85rem;color:rgba(255,255,255,.7);padding:.35rem 0;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:.5rem}
+.plan-features li::before{content:'✓';color:var(--gold);font-weight:700;font-size:.8rem}
+.plan-features li.no{color:rgba(255,255,255,.3)}
+.plan-features li.no::before{content:'✗';color:rgba(255,255,255,.3)}
+
+/* ENROLL FORM */
+.enroll-section{background:linear-gradient(135deg,#0A1630,#060E22)}
+.enroll-wrap{max-width:800px;margin:2.5rem auto 0}
+.step-indicator{display:flex;gap:0;margin-bottom:2.5rem;position:relative}
+.step-indicator::before{content:'';position:absolute;top:18px;left:10%;right:10%;height:2px;background:rgba(255,255,255,.1)}
+.step-ind{flex:1;text-align:center;position:relative;z-index:1}
+.step-ind .circle{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;margin:0 auto .5rem;font-size:.8rem;font-weight:700;transition:all .3s}
+.step-ind.active .circle{background:var(--red);border-color:var(--red)}
+.step-ind.done .circle{background:var(--green);border-color:var(--green)}
+.step-ind .label{font-size:.65rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.07em}
+.form-step{display:none;animation:fadeUp .4s ease}
+.form-step.active{display:block}
+.form-box{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:2.2rem}
+.form-title{font-family:'Playfair Display';font-size:1.4rem;font-weight:700;margin-bottom:.35rem}
+.form-sub{color:rgba(255,255,255,.42);font-size:.88rem;margin-bottom:1.8rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:600px){.form-row{grid-template-columns:1fr}}
+.fg{margin-bottom:1rem}
+.fg label{display:block;font-size:.75rem;font-weight:600;color:rgba(255,255,255,.55);margin-bottom:.3rem;letter-spacing:.04em;text-transform:uppercase}
+.fg input,.fg select,.fg textarea{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.11);border-radius:9px;padding:.65rem .95rem;color:#fff;font-family:'Rajdhani';font-size:.9rem;outline:none;transition:border-color .25s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold)}
+.fg select option{background:#0D1B3E}
+.fg textarea{height:80px;resize:vertical}
+.role-pick{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.6rem;margin-top:.5rem}
+.role-opt{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:.7rem;text-align:center;cursor:pointer;transition:all .2s;font-size:.82rem;font-weight:600}
+.role-opt:hover,.role-opt.selected{border-color:var(--gold);background:rgba(245,166,35,.1);color:var(--gold)}
+.role-opt .ri{font-size:1.4rem;display:block;margin-bottom:.3rem}
+.form-nav{display:flex;justify-content:space-between;margin-top:1.5rem}
+.submit-btn{width:100%;background:linear-gradient(135deg,var(--red),var(--accent));color:#fff;border:none;padding:.9rem;border-radius:11px;font-family:'Rajdhani';font-weight:700;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:all .3s;margin-top:.4rem}
+.submit-btn:hover{box-shadow:0 10px 28px rgba(211,47,47,.4);transform:translateY(-2px)}
+
+/* INCOME PROJECTION */
+.income-section{background:linear-gradient(135deg,#0A1630,#0D1B3E)}
+.projection-table{width:100%;border-collapse:collapse;margin-top:2rem;font-size:.88rem}
+.projection-table th{background:rgba(245,166,35,.1);color:var(--gold);padding:.75rem 1rem;text-align:left;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid rgba(245,166,35,.2)}
+.projection-table td{padding:.7rem 1rem;border-bottom:1px solid rgba(255,255,255,.05);color:rgba(255,255,255,.7)}
+.projection-table tr:hover td{background:rgba(255,255,255,.03)}
+.proj-total td{color:var(--gold)!important;font-weight:700;font-size:1rem!important;border-top:1px solid rgba(245,166,35,.3)!important}
+
+/* ACTION PLAN */
+.action-section{background:var(--dark)}
+.action-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1rem;margin-top:2.5rem}
+.action-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:1.5rem;position:relative;overflow:hidden}
+.action-week{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem}
+.action-title{font-family:'Playfair Display';font-size:1rem;font-weight:700;margin-bottom:.7rem}
+.action-items{list-style:none}
+.action-items li{font-size:.8rem;color:rgba(255,255,255,.6);padding:.3rem 0;display:flex;align-items:flex-start;gap:.5rem;border-bottom:1px solid rgba(255,255,255,.05)}
+.action-items li::before{content:'→';color:var(--accent);flex-shrink:0}
+.action-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px}
+.action-card:nth-child(1)::after{background:linear-gradient(90deg,var(--red),var(--accent))}
+.action-card:nth-child(2)::after{background:linear-gradient(90deg,var(--sky),#4FC3F7)}
+.action-card:nth-child(3)::after{background:linear-gradient(90deg,var(--green),#66BB6A)}
+.action-card:nth-child(4)::after{background:linear-gradient(90deg,var(--gold),#FFD740)}
+
+/* PR SECTION */
+.pr-section{background:linear-gradient(135deg,#0A1630,#060E22)}
+.pr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1rem;margin-top:2.5rem}
+.pr-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:1.4rem;transition:all .3s;cursor:pointer}
+.pr-card:hover{transform:translateY(-5px);border-color:var(--sky)}
+.pr-icon{font-size:2rem;margin-bottom:.7rem}
+.pr-title{font-weight:700;font-size:.95rem;margin-bottom:.4rem}
+.pr-desc{font-size:.78rem;color:rgba(255,255,255,.48);line-height:1.6;margin-bottom:.8rem}
+.pr-price{font-size:.82rem;color:var(--gold);font-weight:700}
+
+/* SOCIAL SECTION */
+.social-section{background:var(--dark)}
+.social-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1rem;margin-top:2.5rem}
+.social-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:1.3rem;text-align:center;transition:all .3s;text-decoration:none;color:#fff;display:block}
+.social-card:hover{transform:translateY(-5px)}
+.social-card .si{font-size:1.9rem;margin-bottom:.55rem}
+.social-card .sn{font-weight:700;font-size:.9rem;margin-bottom:.22rem}
+.social-card .sh{font-size:.72rem;color:rgba(255,255,255,.38)}
+.sc-ig:hover{border-color:#E1306C;background:rgba(225,48,108,.08)}
+.sc-fb:hover{border-color:#1877F2;background:rgba(24,119,242,.08)}
+.sc-yt:hover{border-color:#FF0000;background:rgba(255,0,0,.08)}
+.sc-wa:hover{border-color:#25D366;background:rgba(37,211,102,.08)}
+.sc-li:hover{border-color:#0A66C2;background:rgba(10,102,194,.08)}
+.sc-th:hover{border-color:#aaa;background:rgba(255,255,255,.06)}
+.sc-lt:hover{border-color:#39C5A1;background:rgba(57,197,161,.08)}
+
+/* FOUNDER */
+.founder-section{background:linear-gradient(135deg,#0A1630,#060E22)}
+.founder-card{max-width:860px;margin:2.5rem auto 0;background:rgba(255,255,255,.04);border:1px solid rgba(245,166,35,.22);border-radius:26px;overflow:hidden;display:grid;grid-template-columns:240px 1fr}
+@media(max-width:640px){.founder-card{grid-template-columns:1fr}}
+.founder-left{background:linear-gradient(135deg,rgba(211,47,47,.22),rgba(21,101,192,.22));display:flex;align-items:center;justify-content:center;padding:2.5rem;flex-direction:column;text-align:center}
+.founder-avatar{width:110px;height:110px;border-radius:50%;border:3px solid var(--gold);object-fit:cover;margin-bottom:.85rem;box-shadow:0 0 28px rgba(245,166,35,.28)}
+.founder-right{padding:2.5rem}
+.founder-right h2{font-family:'Playfair Display';font-size:1.55rem;font-weight:900;margin-bottom:.85rem}
+.founder-right p{color:rgba(255,255,255,.58);line-height:1.78;font-size:.9rem;margin-bottom:1.2rem}
+.ftags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.2rem}
+.ftag{background:rgba(245,166,35,.09);border:1px solid rgba(245,166,35,.28);color:var(--gold);padding:.2rem .65rem;border-radius:50px;font-size:.7rem;font-weight:600}
+.flinks{display:flex;gap:.7rem;flex-wrap:wrap}
+.flink{display:inline-flex;align-items:center;gap:.35rem;background:linear-gradient(135deg,var(--gold),#FFC947);color:var(--navy);padding:.48rem 1.2rem;border-radius:50px;font-family:'Rajdhani';font-weight:700;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:all .25s}
+.flink:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(245,166,35,.38)}
+.flink-yt{background:#FF0000;color:#fff}
+.flink-yt:hover{box-shadow:0 8px 22px rgba(255,0,0,.38)}
+
+/* ADMIN PANEL */
+.admin-section{background:#030810;padding:3rem 2rem;border-top:2px solid rgba(245,166,35,.2)}
+.admin-header{display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
+.admin-title{font-family:'Playfair Display';font-size:1.5rem;font-weight:900;color:var(--gold)}
+.admin-badge{background:rgba(245,166,35,.15);border:1px solid rgba(245,166,35,.3);color:var(--gold);padding:.2rem .7rem;border-radius:50px;font-size:.65rem;font-weight:700;letter-spacing:.08em}
+.admin-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin-bottom:2rem}
+.admin-stat{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:1.2rem;text-align:center}
+.admin-stat .av{font-family:'Playfair Display';font-size:1.8rem;font-weight:900;color:var(--gold)}
+.admin-stat .al{font-size:.7rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.07em}
+.admin-table-wrap{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:16px;overflow:hidden;margin-bottom:1.5rem}
+.admin-table-title{padding:.85rem 1.2rem;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid rgba(255,255,255,.07);background:rgba(245,166,35,.05)}
+.admin-table{width:100%;border-collapse:collapse;font-size:.82rem}
+.admin-table th{padding:.6rem 1rem;text-align:left;font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.4);border-bottom:1px solid rgba(255,255,255,.06)}
+.admin-table td{padding:.65rem 1rem;border-bottom:1px solid rgba(255,255,255,.04);color:rgba(255,255,255,.7)}
+.admin-table tr:last-child td{border-bottom:none}
+.status-badge{padding:.15rem .55rem;border-radius:50px;font-size:.62rem;font-weight:700}
+.s-pending{background:rgba(255,193,7,.15);color:#FFD740}
+.s-approved{background:rgba(76,175,80,.15);color:#66BB6A}
+.s-new{background:rgba(21,101,192,.15);color:#42A5F5}
+#adminLogin{max-width:360px;margin:0 auto;text-align:center}
+#adminContent{display:none}
+
+/* FOOTER */
+footer{background:#020810;border-top:1px solid rgba(255,255,255,.05);padding:4rem 2rem 2rem}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:2.5rem;max-width:1260px;margin:0 auto;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.06)}
+.footer-col h4{font-family:'Playfair Display';font-size:.98rem;font-weight:700;margin-bottom:1rem;color:var(--gold)}
+.footer-col p{color:rgba(255,255,255,.4);font-size:.85rem;line-height:1.75}
+.footer-col ul{list-style:none}
+.footer-col ul li{margin-bottom:.5rem}
+.footer-col ul li a{color:rgba(255,255,255,.45);text-decoration:none;font-size:.85rem;transition:color .2s}
+.footer-col ul li a:hover{color:var(--gold)}
+.lang-bubbles{display:flex;flex-wrap:wrap;gap:.3rem}
+.lang-bub{background:rgba(255,255,255,.06);color:rgba(255,255,255,.6);padding:.17rem .52rem;border-radius:50px;font-size:.7rem;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}
+.lang-bub:hover{background:var(--red);color:#fff}
+.footer-bottom{max-width:1260px;margin:2rem auto 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-tagline{font-family:'Playfair Display';font-size:.92rem;color:var(--gold)}
+.footer-legal{color:rgba(255,255,255,.27);font-size:.73rem}
+.footer-legal a{color:rgba(255,255,255,.4);text-decoration:none}
+.footer-legal a:hover{color:var(--gold)}
+
+/* FLOATING ELEMENTS */
+.whatsapp-float{position:fixed;bottom:5.5rem;right:1.5rem;z-index:400;width:50px;height:50px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:all .3s;animation:pulse 2s infinite}
+.whatsapp-float:hover{transform:scale(1.1)}
+@keyframes pulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4)}50%{box-shadow:0 4px 32px rgba(37,211,102,.7)}}
+.back-top{position:fixed;bottom:1.5rem;right:1.5rem;z-index:400;width:42px;height:42px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;cursor:pointer;box-shadow:0 4px 16px rgba(211,47,47,.4);transition:all .3s;opacity:0;pointer-events:none;border:none;color:#fff}
+.back-top.visible{opacity:1;pointer-events:all}
+.back-top:hover{transform:translateY(-3px)}
+
+/* TOAST */
+.toast-container{position:fixed;top:80px;right:20px;z-index:1000;display:flex;flex-direction:column;gap:.6rem}
+.toast{background:rgba(6,14,34,.97);border:1px solid rgba(245,166,35,.3);color:#fff;padding:.8rem 1.2rem;border-radius:12px;font-size:.85rem;font-weight:600;max-width:300px;animation:toastIn .3s ease;backdrop-filter:blur(10px)}
+.toast.success{border-color:rgba(76,175,80,.5)}
+.toast.error{border-color:rgba(211,47,47,.5)}
+@keyframes toastIn{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:600;display:flex;align-items:center;justify-content:center;padding:2rem;opacity:0;pointer-events:none;transition:opacity .3s;backdrop-filter:blur(8px)}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal{background:#0D1B3E;border:1px solid rgba(255,255,255,.12);border-radius:24px;max-width:540px;width:100%;max-height:85vh;overflow-y:auto;padding:2rem;position:relative;transform:scale(.92);transition:transform .3s}
+.modal-overlay.open .modal{transform:scale(1)}
+.modal-close{position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,.1);border:none;color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.modal-close:hover{background:rgba(255,255,255,.2)}
+.modal h2{font-family:'Playfair Display';font-size:1.4rem;font-weight:700;margin-bottom:.5rem}
+.modal p{color:rgba(255,255,255,.55);font-size:.88rem;line-height:1.7;margin-bottom:1.2rem}
+
+/* VISION BANNER */
+.vision-section{background:linear-gradient(135deg,var(--red) 0%,#B71C1C 50%,#7B1FA2 100%);text-align:center;padding:5.5rem 2rem;position:relative;overflow:hidden}
+.vision-section::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E")}
+.vision-content{position:relative;z-index:2;max-width:780px;margin:0 auto}
+.vision-content blockquote{font-family:'Playfair Display';font-size:clamp(1.6rem,4vw,2.8rem);font-weight:700;line-height:1.3;margin-bottom:1.2rem}
+.vision-content p{font-size:.98rem;opacity:.78;max-width:520px;margin:0 auto 1.8rem;line-height:1.75}
+
+/* ANIM */
+.anim{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
+.anim.visible{opacity:1;transform:translateY(0)}
+.anim-delay-1{transition-delay:.1s}
+.anim-delay-2{transition-delay:.2s}
+.anim-delay-3{transition-delay:.3s}
+</style>
+</head>
+<body>
+
+<!-- FLOATING ELEMENTS -->
+<a href="https://whatsapp.com/channel/0029VbB4Rv1It5rwuKwvst1o" target="_blank" class="whatsapp-float" title="WhatsApp">💬</a>
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-logo">⭐ Star<span>Hindis</span></a>
+  <ul class="nav-links">
+    <li><a href="#channels">Channels</a></li>
+    <li><a href="#academy">Academy</a></li>
+    <li><a href="#creator">Creators</a></li>
+    <li><a href="#brands">Brands</a></li>
+    <li><a href="#plans">Plans</a></li>
+    <li><a href="#enroll">Enroll</a></li>
+    <li><a href="#founder">Founder</a></li>
+    <li><a href="#admin">Admin</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="#enroll" class="nav-btn outline">Join Free</a>
+    <a href="#plans" class="nav-btn primary">🚀 Get Started</a>
+    <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#channels" onclick="toggleMenu()">🎬 Channels</a>
+  <a href="#academy" onclick="toggleMenu()">🎓 Academy</a>
+  <a href="#creator" onclick="toggleMenu()">🎤 Creator Network</a>
+  <a href="#brands" onclick="toggleMenu()">🤝 Brand Portal</a>
+  <a href="#plans" onclick="toggleMenu()">💰 Plans</a>
+  <a href="#enroll" onclick="toggleMenu()">✍️ Enroll</a>
+  <a href="#social" onclick="toggleMenu()">📱 Social</a>
+  <a href="#founder" onclick="toggleMenu()">👤 Founder</a>
+  <a href="#admin" onclick="toggleMenu()">⚙️ Admin</a>
+</div>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span>Star Hindis</span><span>Hindi</span><span>Urdu</span><span>Tamil</span><span>Telugu</span><span>Kannada</span><span>Malayalam</span><span>Marathi</span><span>Gujarati</span><span>Punjabi</span><span>Bengali</span><span>Odia</span><span>Arabic</span><span>Sanskrit</span><span>Persian</span><span>Assamese</span><span>English</span><span>23 Channels</span><span>₹28–90L/Month Potential</span><span>Voices Beyond Borders</span><span>Stories Without Limits</span>
+    <span>Star Hindis</span><span>Hindi</span><span>Urdu</span><span>Tamil</span><span>Telugu</span><span>Kannada</span><span>Malayalam</span><span>Marathi</span><span>Gujarati</span><span>Punjabi</span><span>Bengali</span><span>Odia</span><span>Arabic</span><span>Sanskrit</span><span>Persian</span><span>Assamese</span><span>English</span><span>23 Channels</span><span>₹28–90L/Month Potential</span><span>Voices Beyond Borders</span><span>Stories Without Limits</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="stars" id="stars"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🌍 Complete Digital Media & Monetization Ecosystem — 23 Channels · 15+ Languages</div>
+    <h1 class="hero-title">Where Every Indian Becomes<br>a <span class="red">Digital</span> <span class="gold">Star</span></h1>
+    <div class="hero-local">Jahan Har Hindustani Digital Star Banta Hai.</div>
+    <p class="hero-sub">India's largest multilingual media platform with Academy, Creator Network, Brand Portal,<br>Sponsorships & Revenue Systems — sab ek jagah. Crores earn karo.</p>
+    <div class="hero-btns">
+      <a href="#channels" class="btn btn-red">🎬 All 23 Channels</a>
+      <a href="#academy" class="btn btn-gold">🎓 Academy Courses</a>
+      <a href="#enroll" class="btn btn-outline">✍️ Join Free</a>
+      <a href="#sacred" class="btn btn-outline">🕋 Sacred Channel</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><h3 data-count="23">0</h3><p>Channels</p></div>
+      <div class="stat"><h3 data-count="15">0</h3><p>Languages</p></div>
+      <div class="stat"><h3 data-count="7">0</h3><p>Social Platforms</p></div>
+      <div class="stat"><h3 data-count="90">₹<span>0</span>L+</h3><p>Monthly Potential</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL BAR -->
+<div class="social-bar">
+  <span class="social-bar-label">Follow:</span>
+  <a class="soc-lnk" href="https://www.instagram.com/StarHindis" target="_blank">📸 Instagram</a>
+  <a class="soc-lnk" href="https://www.facebook.com/StarHindis" target="_blank">👍 Facebook</a>
+  <a class="soc-lnk" href="https://www.youtube.com/@StarHindis" target="_blank">▶️ YouTube</a>
+  <a class="soc-lnk" href="https://whatsapp.com/channel/0029VbB4Rv1It5rwuKwvst1o" target="_blank">💬 WhatsApp</a>
+  <a class="soc-lnk" href="https://www.linkedin.com/company/starhindis/" target="_blank">💼 LinkedIn</a>
+  <a class="soc-lnk" href="https://www.thread.com/StarHindis" target="_blank">🧵 Threads</a>
+  <a class="soc-lnk" href="https://linktr.ee/starhindis" target="_blank">🌿 Linktree</a>
+</div>
+
+<!-- LIVE STATS -->
+<div class="stats-section">
+  <div class="stats-grid">
+    <div class="stat-card anim"><div class="num" data-count="23">0</div><div class="lbl">YouTube Channels</div></div>
+    <div class="stat-card anim anim-delay-1"><div class="num" data-count="15">0</div><div class="lbl">Languages</div></div>
+    <div class="stat-card anim anim-delay-2"><div class="num" data-count="7">0</div><div class="lbl">Social Platforms</div></div>
+    <div class="stat-card anim anim-delay-3"><div class="num" data-count="6">0</div><div class="lbl">Course Categories</div></div>
+    <div class="stat-card anim"><div class="num" data-count="5">0</div><div class="lbl">Creator Roles</div></div>
+    <div class="stat-card anim anim-delay-1"><div class="num">₹90L+</div><div class="lbl">Monthly Potential</div></div>
+  </div>
+</div>
+
+<!-- CHANNELS SECTION -->
+<section class="channels-section" id="channels">
+  <div class="container">
+    <div class="sec-head">
+      <div>
+        <div class="sec-label">Complete Directory</div>
+        <h2 class="sec-title">All 23 Star Hindis Channels</h2>
+        <p class="sec-desc">Har language, har category — ek platform. Filtere karo aur directly YouTube par jaao.</p>
+      </div>
+      <input class="ch-search" type="text" placeholder="🔍 Search channel..." id="chSearch" oninput="searchChannels(this.value)">
+    </div>
+    <div class="cat-tabs">
+      <div class="cat-tab active" onclick="filterCh('all',this)">All (23)</div>
+      <div class="cat-tab" onclick="filterCh('MAIN',this)">Main</div>
+      <div class="cat-tab" onclick="filterCh('SPECIAL',this)">Special (6)</div>
+      <div class="cat-tab" onclick="filterCh('LANGUAGE',this)">Languages (16)</div>
+    </div>
+    <div class="channels-grid" id="channelGrid">
+      <!-- MAIN -->
+      <div class="ch-card anim" data-cat="MAIN" data-name="star hindis main">
+        <div class="ch-header" style="background:linear-gradient(135deg,rgba(211,47,47,.35),rgba(245,166,35,.2))"><span class="ch-emoji">⭐</span><span class="ch-cat-badge">MAIN</span></div>
+        <div class="ch-body"><div class="ch-name">Star Hindis</div><div class="ch-en">Where Every Indian Becomes a Digital Star.</div><div class="ch-local">Jahan Har Hindustani Digital Star Banta Hai.</div><a class="yt-btn" href="https://www.youtube.com/@StarHindis" target="_blank">▶ @StarHindis</a></div>
+      </div>
+      <!-- BUSINESS -->
+      <div class="ch-card anim" data-cat="SPECIAL" data-name="star hindis businesses business">
+        <div class="ch-header" style="background:linear-gradient(135deg,rgba(21,101,192,.35),rgba(76,175,80,.2))"><span class="ch-emoji">💼</span><span class="ch-cat-badge">BUSINESS</span></div>
+        <div class="ch-body"><div class="ch-name">Star Hindis Businesses</div><div class="ch-en">Empowering Indian Enterprises.</div><div class="ch-local" style="font-family:'Noto Sans Devanagari',sans-serif">कारोबारी तरक्की का डिजिटल रास्ता।</div><a class="yt-btn" href="https://www.youtube.com/@StarHindisBiz" target="_blank">▶ @StarHindisBiz</a></div>
+      </div>
+      <!-- WOMEN -->
+      <div class="ch-card anim" data-cat="SPECIAL" data-name="star hindi fem women">
+        <div class="ch-header" style="background:linear-gradient(135deg,rgba(233,30,99,.35),rgba(156,39,176,.2))"><span class="ch-emoji">👩</span><span class="ch-cat-badge">WOMEN</span></div>
+        <div class="ch-body"><div class="ch-name">Star Hindi Fem</div><div class="ch-en">Celebrating Indian Women's Voices.</div><div class="ch-local">ہندوستانی خواتین کی آواز کا جشن۔</div><a class="yt-btn" href="https://www.youtube.com/@StarHindiFem" target="_blank">▶ @StarHindiFem</a></div>
+      </div>
+      <!-- FOUNDER CH -->
+      <div class="ch-card anim" data-cat="SPECIAL" data-name="mohammad ishaq founder">
+        <div class="ch-header" style="background:linear-gradient(135deg,rgba(245,166,35,.3),rgba(211,47,47,.2))"><span class="ch-emoji">👤</span><span class="ch-cat-badge">FOUNDER</span></div>
+        <div class="ch-body"><div class="ch-name">Mohammad Ishaq</div><div class="ch-en">The Visionary Behind Star Hindis.</div><div class="ch-local" style="font-family:'Noto Sans Devanagari',sans-serif">स्टॉर हिन्दिस् का बानी और विज़न।</div><a class="yt-btn" href="https://www.youtube.com/@StarIshaaq" target="_blank">▶ @StarIshaaq</a></div>
+      </div>
+      <!-- SPIRITUAL -->
+      <div class="ch-card anim" data-cat="SPECIAL" data-name="tasbeez spiritual">
+        <div class="ch-header" style="background:linear-gradient(135deg,rgba(0,150,136,.35),rgba(63,81,181,.2))"><span class="ch-emoji">🧿</span><span class="ch-cat-badge">SPIRITUAL</span></div>
+        <div class="ch-body"><div class="ch-name">Tasbeez</div><div class="ch-en">The Art of Digital Harmony.</div><div class="ch-local" style="font-family:'Noto Sans Devanagari',sans-serif">डिजिटल दुनिया में सुकून।</div><a class="yt-btn" href="https://www.youtube.com/@Tasbeez" target="_blank">▶ @Tasbeez</a></div>
+      </div>
+      <!-- KIDS -->
+      <div class="ch-card anim" data-cat="SPECIAL" data-name="star hindis kids children">
+        <div class="ch-header" style="background:linear-gradient(135deg,rgba(255,193,7,.3),rgba(255,87,34,.2))"><span class="ch-emoji">🧒</span><span class="ch-cat-badge">KIDS</span></div>
+        <div class="ch-body"><div class="ch-name">Star Hindis Kids</div><div class="ch-en">Fun & Learning for Young India.</div><div class="ch-local" style="font-family:'Noto Sans Devanagari',sans-serif">नौजवान भारत के लिए मज़ा और सीख।</div><a class="yt-btn" href="https://www.youtube.com/@StarHindisKid" target="_blank">▶ @StarHindisKid</a></div>
+      </div>
+      <!-- AI ADS -->
+      <div class="ch-card anim" data-cat="SPECIAL" data-name="star ai ads artificial intelligence">
+        <div class="ch-header" style="background:linear-gradient(135deg,rgba(63,81,181,.35),rgba(0,188,212,.2))"><span class="ch-emoji">🤖</span><span class="ch-cat-badge">AI</span></div>
+        <div class="ch-body"><div class="ch-name">Star AI Ads</div><div class="ch-en">Innovating Digital Advertising with AI.</div><div class="ch-local" style="font-family:'Noto Sans Devanagari',sans-serif">AI के साथ डिजिटल विज्ञापन में नवाचार।</div><a class="yt-btn" href="https://www.youtube.com/@StarAIAds" target="_blank">▶ @StarAIAds</a></div>
+      </div>
+      <!-- HINDI -->
+      <div class="ch-card anim" data-cat="LANGUAGE" data-name="star hindis hindi">
+        <div class="ch-header" style="background:linear-gradient(135deg,rgba(211,47,47,.35),rgba(255,87,34,.2))"><span class="ch-emoji">🇮🇳</span><span class="ch-cat-badge">HINDI</span></div>
+        <div class="ch-body"><div class="ch-name">Star Hindis Hindi</div><div class="ch-en">Digital Hindi Stars of India.</div><div class="ch-local" style="font-family:'Noto Sans Devanagari',sans-serif">भारतीयों को हिंदी डिजिटल सितारे बनाना।</div><a class="yt-btn" href="https://www.youtube.com/@StarHindisHindi" target="_blank">▶ @StarHindisHindi</a></div>
+      </div>
+      <!-- URDU -->
+      <div class="ch-card anim" data-cat="LANGUAGE" data-name="star hindis urdu">
+        <div class="ch-header" style="background:linear-gradient(135deg,rgba(0,150,136,.35),rgba(63,81,181,.2))"><span class="ch-emoji">🌙</span><span class="ch-cat-badge">URDU</span></div>
+        <div class="ch-body"><div class="ch-name">Star Hindis Urdu</div><div class="ch-en">Digital Urdu Stars of India.</div><div class="ch-local">ہندی اردو کے ڈیجیٹل ستارے بنانا۔</div><a class="yt-btn" href="https://www.youtube.com/@StarHindisUrdu" target="_blank">▶ @StarHindisUrdu</a></div>
+      </div>
+      <!-- ENGLISH -->
+      <div class="ch-card anim" data-cat="LANGUAGE" data-name="star hindis english">
+        <div class="ch-header" style="background:linear-gradient(135deg,rgba(21,101,192,.35),rgba(0,188,212,.2))"><span class="ch-emoji">🌐</span><span class="ch-cat-badge">ENGLISH</span></div>
+        <div class="ch-body"><div class="ch-name">Star Hindis English</div><div class="ch-en">Digital English Stars of India.</div><div class="ch-local">Empowering Indians as English Digital Stars.</div><a class="yt-btn" href="https://www.youtube.com/@StarHindisEnglish" target="_blank">▶ @StarHindisEnglish</a></div>
+      </div>
+      <!-- TELUGU -->
+      <div class="ch-card anim" data-cat="LANGUAGE" data-name="star hindis telugu">
+        <div class="ch-header" style="background:linear-gradient(135deg,rgba(245,166,35,.3),rgba(255,152,0,.2))"><span class="ch-emoji">🌺</span><span class="ch-cat-badge">TELUGU</span></div>
+        <div class="ch-body"><div class="ch-name">Star Hindis Telugu</div><div class="ch-en">Digital Telugu Stars of India.</div><div class="ch-local">భారతీయులను తెలుగు డిజిటల్ తారలుగా తీర్చిదిద్దడం।</div><a class="yt-btn" href="https://www.youtube.com/@StarHindisTelugu" target="_blank">▶ @StarHindisTelugu</a></div>
+      </div>
+      <!-- TAMIL -->
+      <div class="ch-card anim" data-cat="LANGUAGE" data-name="star hindis tamil">
+        <div class="ch-header" style="background:linear-gradient(135deg,rgba(233,30,99,.3),rgba(156,39,176,.2))"><span class="ch-emoji">🏛️</span><span class="ch-cat-badge">TAMIL</span></div>
+        <div class="ch-body"><div class="ch-name">Star Hindis Tamil</div><div class="ch-en">Digital Tamil Stars of India.</div><div class="ch-local">இந்தியர்களை தமிழ் டிஜிட்டல் நட்சத்திரங்களாக மாற்றுதல்।</div><a class="yt-btn" href="https://www.youtube.com/@StarHindisTamil" target="_blank">▶ @StarHindisTamil</a></div>
+      </div>
+      <!-- KANNADA -->
+      <div class="ch-card anim" data-cat="LANGUAGE" data-name="star hindis kannada">
+        <div class="ch-header" style="background:linear-gradient(135deg,rgba(255,87,34,.3),rgba(255,193,7,.2))"><span class="ch-emoji">🌻</span><span class="ch-cat-badge">KANNADA</span></div>
+        <div class="ch-body"><div class="ch-name">Star Hindis Kannada</div><div class="ch-en">Digital Kannada Stars of India.</div><div class="ch-local">ಭಾರತೀಯರನ್ನು ಕನ್ನಡ ಡಿಜಿಟಲ್ ತಾರೆಗಳಾಗಿ ಸಬಲೀಕರಣ।</div><a class="yt-btn" href="https://www.youtube.com/@StarHindisKannada" target="_blank">▶ @StarHindisKannada</a></div>
+      </div>
+      <!-- MALAYALAM -->
+      <div class="ch-card anim" data-cat="LANGUAGE" data-name="star hindis malayalam">
+        <div class="ch-header" style="background:linear-gradient(135deg,rgba(76,175,80,.3),rgba(0,188,212,.2))"><span class="ch-emoji">🌴</span><span class="ch-cat-badge">MALAYALAM</span></div>
+        <div class="ch-body"><div class="ch-name">Star Hindis Malayalam</div><div class="ch-en">Digital Malayalam Stars of India.</div><div class="ch-local">ഇന്ത്യക്കാരെ മലയാളം ഡിജിറ്റൽ താരങ്ങളായി ശാക്തീകരിക്കുക।</div><a class="yt-btn" href="https://www.youtube.com/@StarHindisMalayalam" target="_blank">▶ @StarHindisMalayalam</a></div>
+      </div>
+      <!-- MARATHI -->
+      <div class="ch-card anim" data-cat="LANGUAGE" data-name="star hindis marathi">
+        <div class="ch-header" style="background:linear-gradient(135deg,rgba(255,152,0,.3),rgba(211,47,47,.2))"><span class="ch-emoji">🦁</span><span class="ch-cat-badge">MARATHI</span></div>
+        <div class="ch-body"><div class="ch-name">Star Hindis Marathi</div><div class="ch-en">Digital Marathi Stars of India.</div><div class="ch-local">भारतीयांना मराठी डिजिटल स्टार्स म्हणून सक्षम बनवणे।</div><a class="yt-btn" href="https://www.youtube.com/@StarHindisMarathi" target="_blank">▶ @StarHindisMarathi</a></div>
+      </div>
+      <!-- GUJARATI -->
+      <div class="ch-card anim" data-cat="LANGUAGE" data-name="star hindis gujarati">
+        <div class="ch-header" style="background:linear-gradient(135deg,rgba(0,188,212,.3),rgba(63,81,181,.2))"><span class="ch-emoji">💎</span><span class="ch-cat-badge">GUJARATI</span></div>
+        <div class="ch-body"><div class="ch-name">Star Hindis Gujarati</div><div class="ch-en">Digital Gujarati Stars of India.</div><div class="ch-local">ભારતીયોને ગુજરાતી ડિજિટલ સ્ટાર્સ તરીકે સશક્ત બનાવવું।</div><a class="yt-btn" href="https://www.youtube.com/@StarHindisGujarati" target="_blank">▶ @StarHindisGujarati</a></div>
+      </div>
+      <!-- PUNJABI -->
+      <div class="ch-card anim" data-cat="LANGUAGE" data-name="star hindis punjabi">
+        <div class="ch-header" style="background:linear-gradient(135deg,rgba(255,87,34,.3),rgba(245,166,35,.2))"><span class="ch-emoji">🌾</span><span class="ch-cat-badge">PUNJABI</span></div>
+        <div class="ch-body"><div class="ch-name">Star Hindis Punjabi</div><div class="ch-en">Digital Punjabi Stars of India.</div><div class="ch-local">ਭਾਰਤੀਆਂ ਨੂੰ ਪੰਜਾਬੀ ਡਿਜੀਟਲ ਸਿਤਾਰੇ ਬਣਾਉਣਾ।</div><a class="yt-btn" href="https://www.youtube.com/@StarHindisPunjabi" target="_blank">▶ @StarHindisPunjabi</a></div>
+      </div>
+      <!-- BENGALI -->
+      <div class="ch-card anim" data-cat="LANGUAGE" data-name="star hindis bengali bangla">
+        <div class="ch-header" style="background:linear-gradient(135deg,rgba(33,150,243,.3),rgba(0,150,136,.2))"><span class="ch-emoji">🎨</span><span class="ch-cat-badge">BENGALI</span></div>
+        <div class="ch-body"><div class="ch-name">Star Hindis Bengali</div><div class="ch-en">Digital Bengali Stars of India.</div><div class="ch-local">ভারতীয়দের বাংলা ডিজিটাল তারকা হিসেবে ক্ষমতায়ন।</div><a class="yt-btn" href="https://www.youtube.com/@StarHindisBengali" target="_blank">▶ @StarHindisBengali</a></div>
+      </div>
+      <!-- ODIA -->
+      <div class="ch-card anim" data-cat="LANGUAGE" data-name="star hindis odia odisha">
+        <div class="ch-header" style="background:linear-gradient(135deg,rgba(156,39,176,.3),rgba(233,30,99,.2))"><span class="ch-emoji">🏺</span><span class="ch-cat-badge">ODIA</span></div>
+        <div class="ch-body"><div class="ch-name">Star Hindis Odia</div><div class="ch-en">Digital Odia Stars of India.</div><div class="ch-local">ଭାରତୀୟମାନଙ୍କୁ ଓଡିଆ ଡିଜିଟାଲ ଷ୍ଟାର୍ ଭାବରେ ସଶକ୍ତ।</div><a class="yt-btn" href="https://www.youtube.com/@StarHindisOdia" target="_blank">▶ @StarHindisOdia</a></div>
+      </div>
+      <!-- ARABIC -->
+      <div class="ch-card anim" data-cat="LANGUAGE" data-name="star hindis arabic">
+        <div class="ch-header" style="background:linear-gradient(135deg,rgba(0,150,136,.3),rgba(76,175,80,.2))"><span class="ch-emoji">🕌</span><span class="ch-cat-badge">ARABIC</span></div>
+        <div class="ch-body"><div class="ch-name">Star Hindis Arabic</div><div class="ch-en">Digital Arabic Stars of India.</div><div class="ch-local">تمكين الهنود ليكونوا نجوماً رقميين في العربية.</div><a class="yt-btn" href="https://www.youtube.com/@StarHindisArabic" target="_blank">▶ @StarHindisArabic</a></div>
+      </div>
+      <!-- ASSAMESE -->
+      <div class="ch-card anim" data-cat="LANGUAGE" data-name="star hindis assamese assam">
+        <div class="ch-header" style="background:linear-gradient(135deg,rgba(255,193,7,.3),rgba(76,175,80,.2))"><span class="ch-emoji">🦏</span><span class="ch-cat-badge">ASSAMESE</span></div>
+        <div class="ch-body"><div class="ch-name">Star Hindis Assamese</div><div class="ch-en">Digital Assamese Stars of India.</div><div class="ch-local">ভাৰতীয়সকলক অসমীয়া ডিজিটেল ষ্টাৰ হিচাপে সবলীকৰণ।</div><a class="yt-btn" href="https://www.youtube.com/@StarHindisAssamese" target="_blank">▶ @StarHindisAssamese</a></div>
+      </div>
+      <!-- SANSKRIT -->
+      <div class="ch-card anim" data-cat="LANGUAGE" data-name="star hindis sanskrit">
+        <div class="ch-header" style="background:linear-gradient(135deg,rgba(121,85,72,.4),rgba(245,166,35,.2))"><span class="ch-emoji">📜</span><span class="ch-cat-badge">SANSKRIT</span></div>
+        <div class="ch-body"><div class="ch-name">Star Hindis Sanskrit</div><div class="ch-en">Digital Sanskrit Stars of India.</div><div class="ch-local" style="font-family:'Noto Sans Devanagari',sans-serif">संस्कृतभाषायां डिजिटलताराः कर्तुं सशक्तिकरणम्।</div><a class="yt-btn" href="https://www.youtube.com/@StarHindisSanskrit" target="_blank">▶ @StarHindisSanskrit</a></div>
+      </div>
+      <!-- PERSIAN -->
+      <div class="ch-card anim" data-cat="LANGUAGE" data-name="star hindis persian farsi">
+        <div class="ch-header" style="background:linear-gradient(135deg,rgba(0,150,136,.3),rgba(63,81,181,.25))"><span class="ch-emoji">🌹</span><span class="ch-cat-badge">PERSIAN</span></div>
+        <div class="ch-body"><div class="ch-name">Star Hindis Persian</div><div class="ch-en">Digital Persian Stars of India.</div><div class="ch-local">توانمندسازی هندی‌ها به عنوان ستاره‌های دیجیتال فارسی۔</div><a class="yt-btn" href="https://www.youtube.com/@StarHindisPersian" target="_blank">▶ @StarHindisPersian</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SACRED CHANNEL -->
+<section class="sacred-section" id="sacred">
+  <div class="container">
+    <div class="sec-label" style="text-align:center;color:#D4AF37">Sacred Channel — Special Listing</div>
+    <h2 class="sec-title" style="text-align:center;color:#D4AF37">Makka Madina Aqsa</h2>
+    <div class="sacred-card anim">
+      <span class="sacred-icon">🕋</span>
+      <div class="sacred-name">Makka Madina Aqsa</div>
+      <div class="sacred-desc">🌙 Welcome to Sacred Makka Madina Aqsa — Live from the Heart of Islam. A spiritual sanctuary in the digital world. Dil ko sukoon, ankhon ko noor. Global Islamic community ke liye dedicated platform.<br><br>💰 <strong style="color:#D4AF37">Sponsorship Opportunity:</strong> Hajj/Umrah agencies, Halal brands, Islamic Finance companies ke liye premium sponsorship slots available.</div>
+      <div class="sacred-btns">
+        <a class="btn btn-red" href="https://www.youtube.com/@MakkaMadinaAqsa" target="_blank">▶ YouTube Channel</a>
+        <a class="btn btn-sky" href="https://www.facebook.com/SacredMakkaMadinaAqsa" target="_blank">👍 Facebook Page</a>
+        <button class="btn btn-gold" onclick="openModal('sacred-sponsor')">🤝 Sponsor This Channel</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACADEMY -->
+<section class="academy-section" id="academy">
+  <div class="container">
+    <div class="sec-head">
+      <div>
+        <div class="sec-label">Star Hindis Academy</div>
+        <h2 class="sec-title">Premium Courses & Training</h2>
+        <p class="sec-desc">India's first multilingual digital creator academy. Apni language mein seekho, globally earn karo.</p>
+      </div>
+      <a href="#enroll" class="btn btn-gold">🎓 Enroll in Academy</a>
+    </div>
+    <div class="courses-grid">
+      <div class="course-card anim" onclick="openModal('course-youtube')">
+        <div class="course-img" style="background:linear-gradient(135deg,rgba(255,0,0,.25),rgba(211,47,47,.2))">🎬<span class="course-badge badge-hot">HOT</span></div>
+        <div class="course-body">
+          <div class="course-title">YouTube Growth Masterclass</div>
+          <div class="course-desc">Hindi/Urdu mein — 0 se 100K subscribers tak ka complete roadmap. SEO, thumbnails, scripts sab kuch.</div>
+          <div class="course-footer"><div class="course-price"><s>₹4,999</s> ₹1,999</div><div class="course-meta">⏱ 12 hrs · 🌐 Hindi/Urdu</div></div>
+        </div>
+      </div>
+      <div class="course-card anim anim-delay-1" onclick="openModal('course-voiceover')">
+        <div class="course-img" style="background:linear-gradient(135deg,rgba(21,101,192,.25),rgba(0,188,212,.2))">🎤<span class="course-badge badge-new">NEW</span></div>
+        <div class="course-body">
+          <div class="course-title">Voiceover Artist Professional Course</div>
+          <div class="course-desc">Professional voiceover training — recording, editing, client acquisition. 15 languages mein work karo.</div>
+          <div class="course-footer"><div class="course-price"><s>₹3,999</s> ₹2,499</div><div class="course-meta">⏱ 8 hrs · 🌐 Multi-lang</div></div>
+        </div>
+      </div>
+      <div class="course-card anim anim-delay-2" onclick="openModal('course-translation')">
+        <div class="course-img" style="background:linear-gradient(135deg,rgba(46,125,50,.25),rgba(76,175,80,.2))">🌍<span class="course-badge badge-new">NEW</span></div>
+        <div class="course-body">
+          <div class="course-title">Translation Business Course</div>
+          <div class="course-desc">Professional translation business setup karo. AI tools ke saath kaam karo. ₹50K–₹2L/month earn karo.</div>
+          <div class="course-footer"><div class="course-price"><s>₹2,999</s> ₹1,499</div><div class="course-meta">⏱ 6 hrs · 🌐 Hindi/English</div></div>
+        </div>
+      </div>
+      <div class="course-card anim" onclick="openModal('course-branding')">
+        <div class="course-img" style="background:linear-gradient(135deg,rgba(106,27,154,.25),rgba(156,39,176,.2))">🌟<span class="course-badge badge-hot">HOT</span></div>
+        <div class="course-body">
+          <div class="course-title">Personal Branding & Digital Fame</div>
+          <div class="course-desc">Apni personal brand banao. Famous kaise bano — PR, media coverage, viral campaigns — complete guide.</div>
+          <div class="course-footer"><div class="course-price"><s>₹5,999</s> ₹2,999</div><div class="course-meta">⏱ 10 hrs · 🌐 Hindi/English</div></div>
+        </div>
+      </div>
+      <div class="course-card anim anim-delay-1" onclick="openModal('course-ads')">
+        <div class="course-img" style="background:linear-gradient(135deg,rgba(245,166,35,.25),rgba(255,152,0,.2))">🤖</div>
+        <div class="course-body">
+          <div class="course-title">AI Advertising & Digital Marketing</div>
+          <div class="course-desc">AI tools se ad campaigns banao. Star AI Ads jaisi production house kaise chalate hain — complete blueprint.</div>
+          <div class="course-footer"><div class="course-price"><s>₹4,499</s> ₹2,199</div><div class="course-meta">⏱ 9 hrs · 🌐 Hindi/English</div></div>
+        </div>
+      </div>
+      <div class="course-card anim anim-delay-2" onclick="openModal('course-free')">
+        <div class="course-img" style="background:linear-gradient(135deg,rgba(0,105,92,.25),rgba(0,150,136,.2))">🚀<span class="course-badge badge-free">FREE</span></div>
+        <div class="course-body">
+          <div class="course-title">Star Hindis Starter Kit</div>
+          <div class="course-desc">Bilkul free — creator ke liye basic guide, tools list, aur Star Hindis network mein kaise join karein.</div>
+          <div class="course-footer"><div class="course-price">FREE</div><div class="course-meta">⏱ 2 hrs · 🌐 All Languages</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREATOR NETWORK -->
+<section class="creator-section" id="creator">
+  <div class="container">
+    <div class="sec-label">Talent Agency Model</div>
+    <h2 class="sec-title">Star Hindis Creator Network</h2>
+    <p class="sec-desc">Aap kaam nahi karte — network karta hai. Join karo, brands milenge, commission milega.</p>
+    <div class="creator-grid">
+      <div>
+        <div class="how-steps">
+          <div class="step anim"><div class="step-num">1</div><div><div class="step-title">Free Enroll Karo</div><div class="step-desc">Voiceover artist, writer, translator, editor ya cultural reporter — apni skill choose karo</div></div></div>
+          <div class="step anim anim-delay-1"><div class="step-num">2</div><div><div class="step-title">Profile Create Hota Hai</div><div class="step-desc">Star Hindis Creator Dashboard mein verified profile milti hai with portfolio showcase</div></div></div>
+          <div class="step anim anim-delay-2"><div class="step-num">3</div><div><div class="step-title">Brand Deals Milte Hain</div><div class="step-desc">Brands Star Hindis ke through tumhara kaam book karte hain — voiceover, translation, content</div></div></div>
+          <div class="step anim"><div class="step-num">4</div><div><div class="step-title">Payment + Commission</div><div class="step-desc">Tumhara full payment milta hai, Star Hindis 20% platform fee leta hai. Transparent system.</div></div></div>
+          <div class="step anim anim-delay-1"><div class="step-num">5</div><div><div class="step-title">Grow & Scale Karo</div><div class="step-desc">Rating improve hone par premium projects milte hain. Top creators ko featured status milta hai.</div></div></div>
+        </div>
+        <div style="margin-top:1.5rem;display:flex;gap:.8rem;flex-wrap:wrap">
+          <a href="#enroll" class="btn btn-red">🎤 Join as Creator</a>
+          <button class="btn btn-outline" onclick="openModal('creator-details')">📋 Know More</button>
+        </div>
+      </div>
+      <div class="creator-stats anim">
+        <div style="font-family:'Playfair Display';font-size:1.2rem;font-weight:700;margin-bottom:1.2rem">💰 Creator Earning Potential</div>
+        <div class="creator-stat-grid">
+          <div class="c-stat"><div class="v">₹5K–₹50K</div><div class="l">Per Voiceover</div></div>
+          <div class="c-stat"><div class="v">₹10K–₹1L</div><div class="l">Per Translation</div></div>
+          <div class="c-stat"><div class="v">₹15K–₹2L</div><div class="l">Per Video</div></div>
+          <div class="c-stat"><div class="v">20%</div><div class="l">Platform Only</div></div>
+        </div>
+        <div class="earnings-chart">
+          <div style="font-size:.75rem;font-weight:700;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.8rem">Monthly Income By Role</div>
+          <div class="e-bar"><div class="e-label"><span>Voiceover Artist</span><span>₹30K–₹1.5L</span></div><div class="e-track"><div class="e-fill" style="width:75%;background:linear-gradient(90deg,var(--red),var(--accent))"></div></div></div>
+          <div class="e-bar"><div class="e-label"><span>Translator</span><span>₹20K–₹80K</span></div><div class="e-track"><div class="e-fill" style="width:55%;background:linear-gradient(90deg,var(--sky),#4FC3F7)"></div></div></div>
+          <div class="e-bar"><div class="e-label"><span>Story Writer</span><span>₹15K–₹60K</span></div><div class="e-track"><div class="e-fill" style="width:42%;background:linear-gradient(90deg,var(--gold),#FFD740)"></div></div></div>
+          <div class="e-bar"><div class="e-label"><span>Video Editor</span><span>₹25K–₹1L</span></div><div class="e-track"><div class="e-fill" style="width:65%;background:linear-gradient(90deg,var(--green),#66BB6A)"></div></div></div>
+          <div class="e-bar"><div class="e-label"><span>Cultural Reporter</span><span>₹10K–₹40K</span></div><div class="e-track"><div class="e-fill" style="width:35%;background:linear-gradient(90deg,var(--purple),#AB47BC)"></div></div></div>
+        </div>
+        <button class="submit-btn" style="margin-top:1.2rem" onclick="document.getElementById('enroll').scrollIntoView({behavior:'smooth'})">🚀 Start Earning Today</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND PORTAL -->
+<section class="brand-section" id="brands">
+  <div class="container">
+    <div class="sec-head">
+      <div>
+        <div class="sec-label">For Brands & Companies</div>
+        <h2 class="sec-title">Brand Sponsorship Portal</h2>
+        <p class="sec-desc">15+ languages mein apni brand ka message pahunchao. India ke har corner tak. Guaranteed reach.</p>
+      </div>
+      <button class="btn btn-gold" onclick="openModal('brand-inquiry')">📩 Brand Inquiry</button>
+    </div>
+    <div class="brand-grid">
+      <div class="brand-card anim" onclick="openModal('brand-yt')">
+        <div class="brand-icon">🎬</div>
+        <div class="brand-title">YouTube Channel Sponsorship</div>
+        <div class="brand-desc">23 channels mein dedicated sponsorship slots. Language-specific targeting. Guaranteed views.</div>
+        <div class="brand-price">₹50K – ₹20L per campaign</div>
+      </div>
+      <div class="brand-card anim anim-delay-1" onclick="openModal('brand-sacred')">
+        <div class="brand-icon">🕋</div>
+        <div class="brand-title">Makka Madina Aqsa Sponsorship</div>
+        <div class="brand-desc">Hajj/Umrah agencies, Halal brands, Islamic Finance — massive global Muslim audience reach karo.</div>
+        <div class="brand-price">₹1L – ₹10L per Ramadan campaign</div>
+      </div>
+      <div class="brand-card anim anim-delay-2" onclick="openModal('brand-content')">
+        <div class="brand-icon">✍️</div>
+        <div class="brand-title">Content Production</div>
+        <div class="brand-desc">Multilingual ad films, voiceovers, translations — Star AI Ads production house se premium quality.</div>
+        <div class="brand-price">₹25K – ₹5L per project</div>
+      </div>
+      <div class="brand-card anim" onclick="openModal('brand-social')">
+        <div class="brand-icon">📱</div>
+        <div class="brand-title">Social Media Management</div>
+        <div class="brand-desc">7 platforms par aapki brand ka professional management. Regional language content. Monthly reporting.</div>
+        <div class="brand-price">₹15K – ₹1L/month</div>
+      </div>
+      <div class="brand-card anim anim-delay-1" onclick="openModal('brand-govt')">
+        <div class="brand-icon">🏛️</div>
+        <div class="brand-title">Government Campaigns</div>
+        <div class="brand-desc">Digital India, tourism, scheme awareness — multilingual government campaigns. Trusted partner.</div>
+        <div class="brand-price">₹5L – ₹50L per campaign</div>
+      </div>
+      <div class="brand-card anim anim-delay-2" onclick="openModal('brand-ai')">
+        <div class="brand-icon">🤖</div>
+        <div class="brand-title">AI-Powered Translation & Dubbing</div>
+        <div class="brand-desc">Your content 15+ languages mein automatically translate aur dub karo. AI voice cloning technology.</div>
+        <div class="brand-price">₹10K – ₹2L per project</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUBSCRIPTION PLANS -->
+<section class="plans-section" id="plans">
+  <div class="container">
+    <div class="sec-label">Choose Your Plan</div>
+    <h2 class="sec-title">Membership & Subscription</h2>
+    <p class="sec-desc">Creator se lekar brand tak — har kisi ke liye plan available hai.</p>
+    <div class="plans-grid" style="margin-top:2.5rem">
+      <div class="plan-card anim">
+        <div class="plan-name">Free Starter</div>
+        <div class="plan-price">₹0 <span>/month</span></div>
+        <div class="plan-period">Forever free — no credit card needed</div>
+        <ul class="plan-features">
+          <li>Creator profile on Star Hindis</li>
+          <li>Access to free Starter Kit course</li>
+          <li>Star Hindis community access</li>
+          <li>Job board access (view only)</li>
+          <li class="no">Premium courses</li>
+          <li class="no">Featured creator status</li>
+          <li class="no">Direct brand deals</li>
+          <li class="no">Priority support</li>
+        </ul>
+        <a href="#enroll" class="btn btn-outline" style="width:100%;justify-content:center">Get Started Free</a>
+      </div>
+      <div class="plan-card featured anim anim-delay-1">
+        <div class="plan-name">Creator Pro</div>
+        <div class="plan-price">₹299 <span>/month</span></div>
+        <div class="plan-period">or ₹2,499/year (save ₹1,089)</div>
+        <ul class="plan-features">
+          <li>Everything in Free</li>
+          <li>All 6 Academy courses access</li>
+          <li>Featured creator badge</li>
+          <li>Direct brand deal access</li>
+          <li>Priority job matching</li>
+          <li>Monthly group mentorship call</li>
+          <li>Exclusive Telegram group</li>
+          <li class="no">Dedicated account manager</li>
+        </ul>
+        <button class="submit-btn" onclick="openModal('plan-pro')">🚀 Join Creator Pro</button>
+      </div>
+      <div class="plan-card anim anim-delay-2">
+        <div class="plan-name">Brand Partner</div>
+        <div class="plan-price">₹4,999 <span>/month</span></div>
+        <div class="plan-period">Minimum 3 month commitment</div>
+        <ul class="plan-features">
+          <li>Everything in Creator Pro</li>
+          <li>Dedicated account manager</li>
+          <li>Monthly analytics report</li>
+          <li>Custom campaign strategy</li>
+          <li>Cross-channel promotion</li>
+          <li>AI translation services</li>
+          <li>Direct founder access</li>
+          <li>Custom contract terms</li>
+        </ul>
+        <button class="submit-btn" style="background:linear-gradient(135deg,var(--sky),#1E88E5)" onclick="openModal('plan-brand')">🤝 Become Brand Partner</button>
+      </div>
+      <div class="plan-card anim">
+        <div class="plan-name">Enterprise</div>
+        <div class="plan-price">Custom</div>
+        <div class="plan-period">For large brands & government</div>
+        <ul class="plan-features">
+          <li>Everything in Brand Partner</li>
+          <li>All 23 channels access</li>
+          <li>Exclusive sponsorship deals</li>
+          <li>OTT platform early access</li>
+          <li>White-label content</li>
+          <li>Quarterly strategy session</li>
+          <li>PR & media placement</li>
+          <li>Revenue sharing model</li>
+        </ul>
+        <button class="submit-btn" style="background:linear-gradient(135deg,var(--gold),#FFC947);color:var(--navy)" onclick="openModal('plan-enterprise')">📞 Contact for Quote</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MULTI-STEP ENROLL FORM -->
+<section class="enroll-section" id="enroll">
+  <div class="container">
+    <div class="sec-label">Join Star Hindis</div>
+    <h2 class="sec-title">Free Creator Enrollment</h2>
+    <p class="sec-desc">3 simple steps mein join karo — aur apni digital journey shuru karo.</p>
+    <div class="enroll-wrap">
+      <div class="step-indicator">
+        <div class="step-ind active" id="si1"><div class="circle">1</div><div class="label">Your Info</div></div>
+        <div class="step-ind" id="si2"><div class="circle">2</div><div class="label">Your Skills</div></div>
+        <div class="step-ind" id="si3"><div class="circle">3</div><div class="label">Confirm</div></div>
+      </div>
+      <div class="form-box">
+        <!-- STEP 1 -->
+        <div class="form-step active" id="step1">
+          <div class="form-title">Tell us about yourself</div>
+          <div class="form-sub">Basic information — takes 60 seconds</div>
+          <div class="form-row">
+            <div class="fg"><label>Full Name *</label><input type="text" id="f_name" placeholder="Aapka poora naam"></div>
+            <div class="fg"><label>WhatsApp Number *</label><input type="tel" id="f_phone" placeholder="+91 98765 43210"></div>
+          </div>
+          <div class="form-row">
+            <div class="fg"><label>Email Address</label><input type="email" id="f_email" placeholder="email@example.com"></div>
+            <div class="fg"><label>Country *</label><input type="text" id="f_country" placeholder="India / UAE / UK..."></div>
+          </div>
+          <div class="fg"><label>City</label><input type="text" id="f_city" placeholder="Mumbai, Delhi, Hyderabad..."></div>
+          <div class="form-nav">
+            <div></div>
+            <button class="btn btn-red" onclick="nextStep(1)">Next: Skills →</button>
+          </div>
+        </div>
+        <!-- STEP 2 -->
+        <div class="form-step" id="step2">
+          <div class="form-title">What do you bring to Star Hindis?</div>
+          <div class="form-sub">Select your primary role (can be multiple)</div>
+          <div class="fg">
+            <label>Choose Your Role(s) *</label>
+            <div class="role-pick">
+              <div class="role-opt" onclick="toggleRole(this,'Voiceover Artist')"><span class="ri">🎤</span>Voiceover Artist</div>
+              <div class="role-opt" onclick="toggleRole(this,'Story Writer')"><span class="ri">✍️</span>Story Writer</div>
+              <div class="role-opt" onclick="toggleRole(this,'Translator')"><span class="ri">🌍</span>Translator</div>
+              <div class="role-opt" onclick="toggleRole(this,'Video Editor')"><span class="ri">🎬</span>Video Editor</div>
+              <div class="role-opt" onclick="toggleRole(this,'Cultural Reporter')"><span class="ri">📢</span>Cultural Reporter</div>
+              <div class="role-opt" onclick="toggleRole(this,'Content Creator')"><span class="ri">📱</span>Content Creator</div>
+              <div class="role-opt" onclick="toggleRole(this,'Educator')"><span class="ri">🎓</span>Educator</div>
+              <div class="role-opt" onclick="toggleRole(this,'Brand Manager')"><span class="ri">💼</span>Brand Manager</div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="fg"><label>Primary Language *</label>
+              <select id="f_lang"><option value="">Select language</option><option>Hindi</option><option>Urdu</option><option>Tamil</option><option>Telugu</option><option>Kannada</option><option>Malayalam</option><option>Marathi</option><option>Gujarati</option><option>Punjabi</option><option>Bengali</option><option>Odia</option><option>Assamese</option><option>Sanskrit</option><option>Arabic</option><option>Persian</option><option>English</option><option>Multiple</option></select>
+            </div>
+            <div class="fg"><label>Experience</label>
+              <select id="f_exp"><option>Fresher (0–1 year)</option><option>Intermediate (1–3 years)</option><option>Expert (3+ years)</option></select>
+            </div>
+          </div>
+          <div class="fg"><label>Portfolio / Sample Link</label><input type="url" id="f_portfolio" placeholder="YouTube / SoundCloud / Google Drive link..."></div>
+          <div class="form-nav">
+            <button class="btn btn-outline" onclick="prevStep(2)">← Back</button>
+            <button class="btn btn-red" onclick="nextStep(2)">Next: Confirm →</button>
+          </div>
+        </div>
+        <!-- STEP 3 -->
+        <div class="form-step" id="step3">
+          <div class="form-title">Almost done! 🎉</div>
+          <div class="form-sub">Review your information and submit</div>
+          <div id="enrollSummary" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:1.2rem;margin-bottom:1.2rem;font-size:.88rem;color:rgba(255,255,255,.7);line-height:1.9"></div>
+          <div class="fg"><label>Why do you want to join Star Hindis? *</label><textarea id="f_why" placeholder="Tell us your story, your goals, aur kyun aap Star Hindis ke saath kaam karna chahte hain..."></textarea></div>
+          <div class="fg"><label>How did you hear about us?</label>
+            <select id="f_source"><option>YouTube</option><option>Instagram</option><option>Facebook</option><option>WhatsApp</option><option>Friend / Referral</option><option>Google Search</option><option>LinkedIn</option><option>Other</option></select>
+          </div>
+          <div class="form-nav">
+            <button class="btn btn-outline" onclick="prevStep(3)">← Back</button>
+            <button class="submit-btn" style="width:auto;padding:.85rem 2rem" onclick="submitEnroll()">🚀 Submit Enrollment</button>
+          </div>
+        </div>
+        <!-- SUCCESS -->
+        <div class="form-step" id="step4" style="text-align:center;padding:2rem 0">
+          <div style="font-size:4rem;margin-bottom:1rem">🎉</div>
+          <h2 style="font-family:'Playfair Display';font-size:1.8rem;margin-bottom:.7rem">Welcome to Star Hindis!</h2>
+          <p style="color:rgba(255,255,255,.6);margin-bottom:1.5rem">Aapka enrollment submit ho gaya. Hum 24–48 hours mein WhatsApp par contact karenge.</p>
+          <div style="display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap">
+            <a href="https://whatsapp.com/channel/0029VbB4Rv1It5rwuKwvst1o" target="_blank" class="btn btn-green">💬 Join WhatsApp Channel</a>
+            <a href="#academy" class="btn btn-gold">🎓 Explore Academy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INCOME PROJECTION -->
+<section class="income-section" id="income">
+  <div class="container">
+    <div class="sec-label">Revenue Blueprint</div>
+    <h2 class="sec-title">Income Projection — Star Hindis</h2>
+    <p class="sec-desc">Realistic monthly income targets based on consistent execution. Crores earn karna possible hai.</p>
+    <div style="overflow-x:auto">
+      <table class="projection-table">
+        <thead><tr><th>Income Source</th><th>6 Month Target</th><th>12 Month Target</th><th>Strategy</th></tr></thead>
+        <tbody>
+          <tr><td>🎬 YouTube Ad Revenue (23 channels)</td><td>₹1–3L/month</td><td>₹5–15L/month</td><td>Monetize all channels, post 3x/week</td></tr>
+          <tr><td>🤝 Brand Sponsorships</td><td>₹2–5L/month</td><td>₹10–50L/month</td><td>Cold pitch 50 brands, B2B focus</td></tr>
+          <tr><td>🎓 Academy Courses</td><td>₹1–2L/month</td><td>₹5–10L/month</td><td>500 students × ₹2,000 avg</td></tr>
+          <tr><td>🎤 Creator Agency (20% commission)</td><td>₹50K–2L/month</td><td>₹5–10L/month</td><td>100 creators × 2 deals × ₹5K fee</td></tr>
+          <tr><td>💰 Subscriptions (Pro/Brand)</td><td>₹50K–1L/month</td><td>₹3–5L/month</td><td>1000 Pro + 50 Brand subscribers</td></tr>
+          <tr><td>🕋 Makka Madina Islamic Sponsors</td><td>₹1–3L/month</td><td>₹5–15L/month</td><td>Ramadan campaigns + Hajj agencies</td></tr>
+          <tr><td>📱 Social Media Management</td><td>₹50K–1L/month</td><td>₹2–5L/month</td><td>10 brand clients × ₹15–50K/month</td></tr>
+          <tr class="proj-total"><td><strong>💰 TOTAL POTENTIAL</strong></td><td><strong>₹6–17L/month</strong></td><td><strong>₹35–1Cr/month</strong></td><td><strong>Consistent + Smart Execution</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ACTION PLAN -->
+<section class="action-section" id="action">
+  <div class="container">
+    <div class="sec-label">30-Day Roadmap</div>
+    <h2 class="sec-title">Action Plan — Start Today</h2>
+    <p class="sec-desc">Concrete steps jo aaj se start karni hain. Ek mahine mein results dikhne shuru ho jayenge.</p>
+    <div class="action-grid">
+      <div class="action-card anim">
+        <div class="action-week">Week 1 — Foundation</div>
+        <div class="action-title">Setup & Consistency</div>
+        <ul class="action-items">
+          <li>Har channel par posting schedule fix karo (3/week)</li>
+          <li>YouTube SEO optimize karo — titles, descriptions</li>
+          <li>All social media profiles complete karo</li>
+          <li>WhatsApp channel par 1000+ subscribers lao</li>
+          <li>Pehla free course launch karo</li>
+        </ul>
+      </div>
+      <div class="action-card anim anim-delay-1">
+        <div class="action-week">Week 2 — Revenue</div>
+        <div class="action-title">Brand Outreach</div>
+        <ul class="action-items">
+          <li>50 brands ko cold email bhejo (Star Hindis letterhead se)</li>
+          <li>EdTech companies — Byju's, Unacademy pitch karo</li>
+          <li>Hajj/Umrah agencies ko Makka channel pitch karo</li>
+          <li>LinkedIn par brand decision makers connect karo</li>
+          <li>Pehla sponsorship deal close karo</li>
+        </ul>
+      </div>
+      <div class="action-card anim anim-delay-2">
+        <div class="action-week">Week 3 — Fame</div>
+        <div class="action-title">PR & Media Push</div>
+        <ul class="action-items">
+          <li>Regional news channels ko press release bhejo</li>
+          <li>Viral challenge launch karo — #StarHindisCreator</li>
+          <li>Top creators se collaboration reach out karo</li>
+          <li>TEDx / speaker event applications bhejo</li>
+          <li>Startup India registration complete karo</li>
+        </ul>
+      </div>
+      <div class="action-card anim">
+        <div class="action-week">Week 4 — Scale</div>
+        <div class="action-title">Academy & Network</div>
+        <ul class="action-items">
+          <li>Pehla paid course launch karo (₹999–₹1,999)</li>
+          <li>Creator agency officially launch karo</li>
+          <li>100 creators onboard karne ka target</li>
+          <li>Mobile app development start karo</li>
+          <li>Investor deck ready karo (next funding round)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION BANNER -->
+<section class="vision-section">
+  <div class="vision-content">
+    <blockquote>"Voices Beyond Borders — Stories Without Limits"</blockquote>
+    <p>Star Hindis ek mission hai — People + Languages + Cultures ko worldwide connect karna. 23 channels, 15 languages, ek vision — India ko digital duniya ka king banana.</p>
+    <div style="display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap">
+      <a href="#enroll" class="btn btn-gold">🌟 Join Free Today</a>
+      <a href="#plans" class="btn btn-outline">💰 View Plans</a>
+    </div>
+  </div>
+</section>
+
+<!-- PR & MEDIA -->
+<section class="pr-section" id="pr">
+  <div class="container">
+    <div class="sec-label">Media & PR Services</div>
+    <h2 class="sec-title">Star Hindis PR Network</h2>
+    <p class="sec-desc">Apni brand ki story media tak pahunchao. News coverage, press releases, aur digital PR — sab ek jagah.</p>
+    <div class="pr-grid">
+      <div class="pr-card anim" onclick="openModal('pr-press')">
+        <div class="pr-icon">📰</div>
+        <div class="pr-title">Press Release Writing & Distribution</div>
+        <div class="pr-desc">Professional press release likhna + 100+ media outlets mein distribute karna. News mein aao.</div>
+        <div class="pr-price">₹10K – ₹50K per release</div>
+      </div>
+      <div class="pr-card anim anim-delay-1" onclick="openModal('pr-news')">
+        <div class="pr-icon">📺</div>
+        <div class="pr-title">Regional TV & News Placement</div>
+        <div class="pr-desc">Regional channels mein coverage dila'o. Hindi, Urdu, Tamil, Telugu news channels partnerships.</div>
+        <div class="pr-price">₹25K – ₹2L per feature</div>
+      </div>
+      <div class="pr-card anim anim-delay-2" onclick="openModal('pr-social-mgmt')">
+        <div class="pr-icon">📱</div>
+        <div class="pr-title">Social Media Management</div>
+        <div class="pr-desc">All 7 platforms professionally manage karo. Regional language content, daily posting, growth strategy.</div>
+        <div class="pr-price">₹15K – ₹1L/month</div>
+      </div>
+      <div class="pr-card anim" onclick="openModal('pr-viral')">
+        <div class="pr-icon">🔥</div>
+        <div class="pr-title">Viral Campaign Strategy</div>
+        <div class="pr-desc">Trending challenges, hashtag campaigns, influencer collaborations — viral hone ka proven formula.</div>
+        <div class="pr-price">₹50K – ₹5L per campaign</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL SECTION -->
+<section class="social-section" id="social">
+  <div class="container">
+    <div class="sec-label">Follow Us Everywhere</div>
+    <h2 class="sec-title">Star Hindis on Social Media</h2>
+    <p class="sec-desc">Har platform par hum maujood hain — content, updates, community aur opportunities.</p>
+    <div class="social-grid">
+      <a class="social-card sc-ig anim" href="https://www.instagram.com/StarHindis" target="_blank"><div class="si">📸</div><div class="sn">Instagram</div><div class="sh">@StarHindis</div></a>
+      <a class="social-card sc-fb anim anim-delay-1" href="https://www.facebook.com/StarHindis" target="_blank"><div class="si">👍</div><div class="sn">Facebook</div><div class="sh">@StarHindis</div></a>
+      <a class="social-card sc-yt anim anim-delay-2" href="https://www.youtube.com/@StarHindis" target="_blank"><div class="si">▶️</div><div class="sn">YouTube</div><div class="sh">@StarHindis</div></a>
+      <a class="social-card sc-wa anim" href="https://whatsapp.com/channel/0029VbB4Rv1It5rwuKwvst1o" target="_blank"><div class="si">💬</div><div class="sn">WhatsApp</div><div class="sh">Official Channel</div></a>
+      <a class="social-card sc-li anim anim-delay-1" href="https://www.linkedin.com/company/starhindis/" target="_blank"><div class="si">💼</div><div class="sn">LinkedIn</div><div class="sh">Star Hindis Company</div></a>
+      <a class="social-card sc-th anim anim-delay-2" href="https://www.thread.com/StarHindis" target="_blank"><div class="si">🧵</div><div class="sn">Threads</div><div class="sh">@StarHindis</div></a>
+      <a class="social-card sc-lt anim" href="https://linktr.ee/starhindis" target="_blank"><div class="si">🌿</div><div class="sn">Linktree</div><div class="sh">linktr.ee/starhindis</div></a>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="founder-section" id="founder">
+  <div class="container">
+    <div class="sec-label">The Visionary</div>
+    <h2 class="sec-title">Meet the Founder</h2>
+    <p class="sec-desc">Star Hindis ki neev rakhne wale entrepreneur ke baare mein jaanein.</p>
+    <div class="founder-card anim">
+      <div class="founder-left">
+        <img src="/mnt/user-data/uploads/abe9dcd0-942d-4aab-a5ac-2acb2d2ba9c4-1_all_2370.jpg" alt="Mohammad Ishaq" class="founder-avatar">
+        <div style="font-family:'Playfair Display';font-size:1.15rem;font-weight:700">Mohammad Ishaq</div>
+        <div style="color:var(--gold);font-size:.72rem;margin:.25rem 0 1.2rem;text-transform:uppercase;letter-spacing:.07em">Founder & Visionary</div>
+        <div style="display:flex;flex-direction:column;gap:.5rem;width:100%">
+          <a href="https://www.ishaaq.in" target="_blank" style="background:rgba(245,166,35,.15);border:1px solid rgba(245,166,35,.3);color:var(--gold);padding:.4rem .8rem;border-radius:50px;font-size:.75rem;font-weight:700;text-decoration:none;text-align:center">🔗 www.ishaaq.in</a>
+          <a href="https://www.youtube.com/@StarIshaaq" target="_blank" style="background:rgba(255,0,0,.15);border:1px solid rgba(255,0,0,.3);color:#FF5555;padding:.4rem .8rem;border-radius:50px;font-size:.75rem;font-weight:700;text-decoration:none;text-align:center">▶ YouTube Channel</a>
+        </div>
+      </div>
+      <div class="founder-right">
+        <h2>Mohammad Ishaq — Founder, Star Hindis</h2>
+        <p>Mohammad Ishaq ek visionary digital entrepreneur hain jo Star Hindis ko ek global multilingual media & technology ecosystem banane ka mission rakhte hain. Unka focus hai storytelling, cultural preservation aur technology ke through India ki 15+ languages ko worldwide connect karna.</p>
+        <p>Unka vision sirf channels banana nahi — balki ek complete ecosystem banana hai: Academy, Creator Network, Brand Agency, AI Tools aur OTT Platform — sab ek chhat ke neeche. "Voices Beyond Borders" sirf ek tagline nahi, ek movement hai.</p>
+        <div class="ftags">
+          <span class="ftag">Media Strategist</span>
+          <span class="ftag">Cultural Innovator</span>
+          <span class="ftag">Digital Entrepreneur</span>
+          <span class="ftag">Multilingual Creator</span>
+          <span class="ftag">Storyteller</span>
+          <span class="ftag">Tech Visionary</span>
+        </div>
+        <div class="flinks">
+          <a href="https://www.ishaaq.in" target="_blank" class="flink">🔗 www.ishaaq.in</a>
+          <a href="https://www.youtube.com/@StarIshaaq" target="_blank" class="flink flink-yt">▶ YouTube</a>
+          <a href="https://www.instagram.com/StarHindis" target="_blank" class="flink" style="background:linear-gradient(135deg,#E1306C,#F77737);color:#fff">📸 Instagram</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADMIN PANEL -->
+<section class="admin-section" id="admin">
+  <div class="container">
+    <div id="adminLogin">
+      <div style="font-family:'Playfair Display';font-size:1.4rem;font-weight:700;color:var(--gold);margin-bottom:.5rem">⚙️ Admin Panel</div>
+      <p style="color:rgba(255,255,255,.45);font-size:.88rem;margin-bottom:1.5rem">Star Hindis internal dashboard — authorized access only</p>
+      <div class="fg"><label>Admin Password</label><input type="password" id="adminPass" placeholder="Enter password..." onkeydown="if(event.key==='Enter')adminLogin()"></div>
+      <button class="btn btn-gold" style="width:100%;justify-content:center;margin-top:.5rem" onclick="adminLogin()">🔐 Login to Dashboard</button>
+    </div>
+    <div id="adminContent">
+      <div class="admin-header">
+        <div class="admin-title">⚙️ Star Hindis Dashboard</div>
+        <div class="admin-badge">ADMIN</div>
+        <button class="btn btn-outline btn-sm" onclick="adminLogout()" style="margin-left:auto">Logout</button>
+      </div>
+      <div class="admin-grid">
+        <div class="admin-stat"><div class="av" id="adEnrollCount">0</div><div class="al">Total Enrollments</div></div>
+        <div class="admin-stat"><div class="av" id="adCourseCount">0</div><div class="al">Course Signups</div></div>
+        <div class="admin-stat"><div class="av" id="adBrandCount">0</div><div class="al">Brand Inquiries</div></div>
+        <div class="admin-stat"><div class="av" id="adPlanCount">0</div><div class="al">Plan Signups</div></div>
+        <div class="admin-stat"><div class="av" id="adSponsorCount">0</div><div class="al">Sponsorship Req</div></div>
+        <div class="admin-stat"><div class="av">23</div><div class="al">Active Channels</div></div>
+      </div>
+      <!-- Enrollments Table -->
+      <div class="admin-table-wrap">
+        <div class="admin-table-title">📋 Creator Enrollments</div>
+        <div style="overflow-x:auto"><table class="admin-table"><thead><tr><th>#</th><th>Name</th><th>Phone</th><th>Role</th><th>Language</th><th>Country</th><th>Status</th><th>Time</th></tr></thead><tbody id="enrollTable"><tr><td colspan="8" style="text-align:center;color:rgba(255,255,255,.3);padding:1.5rem">No enrollments yet</td></tr></tbody></table></div>
+      </div>
+      <!-- Brand Inquiries Table -->
+      <div class="admin-table-wrap">
+        <div class="admin-table-title">🤝 Brand & Sponsorship Inquiries</div>
+        <div style="overflow-x:auto"><table class="admin-table"><thead><tr><th>#</th><th>Name/Brand</th><th>Contact</th><th>Type</th><th>Budget</th><th>Status</th><th>Time</th></tr></thead><tbody id="brandTable"><tr><td colspan="7" style="text-align:center;color:rgba(255,255,255,.3);padding:1.5rem">No inquiries yet</td></tr></tbody></table></div>
+      </div>
+      <!-- Plan Signups Table -->
+      <div class="admin-table-wrap">
+        <div class="admin-table-title">💰 Plan & Course Signups</div>
+        <div style="overflow-x:auto"><table class="admin-table"><thead><tr><th>#</th><th>Name</th><th>Email</th><th>Plan/Course</th><th>Amount</th><th>Status</th><th>Time</th></tr></thead><tbody id="planTable"><tr><td colspan="7" style="text-align:center;color:rgba(255,255,255,.3);padding:1.5rem">No signups yet</td></tr></tbody></table></div>
+      </div>
+      <div style="display:flex;gap:.8rem;flex-wrap:wrap">
+        <button class="btn btn-outline btn-sm" onclick="exportData()">📥 Export Data (JSON)</button>
+        <button class="btn btn-red btn-sm" onclick="clearData()">🗑️ Clear All Data</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>⭐ Star Hindis</h4>
+      <p>India's global multilingual media & technology ecosystem. 23 Channels · 15+ Languages · Academy · Creator Network · Brand Agency.</p>
+      <br>
+      <p style="color:rgba(255,255,255,.25);font-size:.78rem">🌐 www.StarHindis.in<br>🌐 www.StarHindis.com</p>
+    </div>
+    <div class="footer-col">
+      <h4>Platform</h4>
+      <ul>
+        <li><a href="#channels">🎬 All 23 Channels</a></li>
+        <li><a href="#sacred">🕋 Makka Madina Aqsa</a></li>
+        <li><a href="#academy">🎓 Star Hindis Academy</a></li>
+        <li><a href="#creator">🎤 Creator Network</a></li>
+        <li><a href="#brands">🤝 Brand Portal</a></li>
+        <li><a href="#plans">💰 Membership Plans</a></li>
+        <li><a href="#pr">📰 PR & Media</a></li>
+        <li><a href="#income">📊 Income Projection</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Languages (16)</h4>
+      <div class="lang-bubbles">
+        <a class="lang-bub" href="https://www.youtube.com/@StarHindisHindi" target="_blank">Hindi</a>
+        <a class="lang-bub" href="https://www.youtube.com/@StarHindisUrdu" target="_blank">Urdu</a>
+        <a class="lang-bub" href="https://www.youtube.com/@StarHindisBengali" target="_blank">Bengali</a>
+        <a class="lang-bub" href="https://www.youtube.com/@StarHindisTamil" target="_blank">Tamil</a>
+        <a class="lang-bub" href="https://www.youtube.com/@StarHindisTelugu" target="_blank">Telugu</a>
+        <a class="lang-bub" href="https://www.youtube.com/@StarHindisKannada" target="_blank">Kannada</a>
+        <a class="lang-bub" href="https://www.youtube.com/@StarHindisMalayalam" target="_blank">Malayalam</a>
+        <a class="lang-bub" href="https://www.youtube.com/@StarHindisMarathi" target="_blank">Marathi</a>
+        <a class="lang-bub" href="https://www.youtube.com/@StarHindisGujarati" target="_blank">Gujarati</a>
+        <a class="lang-bub" href="https://www.youtube.com/@StarHindisPunjabi" target="_blank">Punjabi</a>
+        <a class="lang-bub" href="https://www.youtube.com/@StarHindisOdia" target="_blank">Odia</a>
+        <a class="lang-bub" href="https://www.youtube.com/@StarHindisArabic" target="_blank">Arabic</a>
+        <a class="lang-bub" href="https://www.youtube.com/@StarHindisAssamese" target="_blank">Assamese</a>
+        <a class="lang-bub" href="https://www.youtube.com/@StarHindisSanskrit" target="_blank">Sanskrit</a>
+        <a class="lang-bub" href="https://www.youtube.com/@StarHindisPersian" target="_blank">Persian</a>
+        <a class="lang-bub" href="https://www.youtube.com/@StarHindisEnglish" target="_blank">English</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="https://www.instagram.com/StarHindis" target="_blank">📸 Instagram</a></li>
+        <li><a href="https://www.facebook.com/StarHindis" target="_blank">👍 Facebook</a></li>
+        <li><a href="https://www.youtube.com/@StarHindis" target="_blank">▶️ YouTube</a></li>
+        <li><a href="https://whatsapp.com/channel/0029VbB4Rv1It5rwuKwvst1o" target="_blank">💬 WhatsApp Channel</a></li>
+        <li><a href="https://www.linkedin.com/company/starhindis/" target="_blank">💼 LinkedIn</a></li>
+        <li><a href="https://www.thread.com/StarHindis" target="_blank">🧵 Threads</a></li>
+        <li><a href="https://linktr.ee/starhindis" target="_blank">🌿 Linktree</a></li>
+        <li><a href="https://www.ishaaq.in" target="_blank">🔗 Founder: ishaaq.in</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-tagline">🌍 Star Hindis — Voices Beyond Borders</div>
+    <div class="footer-legal">© 2026 Star Hindis Media Network. All Rights Reserved. &nbsp;|&nbsp; <a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms</a> &nbsp;|&nbsp; <a href="#">Disclaimer</a></div>
+  </div>
+</footer>
+<script>
+// ═══════════════════════════════════════
+// IN-MEMORY DATABASE (Backend Simulation)
+// ═══════════════════════════════════════
+const DB = {
+  enrollments: [],
+  brandInquiries: [],
+  planSignups: [],
+  sponsorRequests: [],
+  selectedRoles: []
+};
+
+// ═══════════════════════════════════════
+// STARS ANIMATION
+// ═══════════════════════════════════════
+const starsEl = document.getElementById('stars');
+for(let i=0;i<90;i++){
+  const s=document.createElement('div'); s.className='star';
+  const sz=Math.random()*2.8+.8;
+  s.style.cssText=`width:${sz}px;height:${sz}px;top:${Math.random()*100}%;left:${Math.random()*100}%;animation-delay:${Math.random()*4}s;animation-duration:${2+Math.random()*4}s;`;
+  starsEl.appendChild(s);
+}
+
+// ═══════════════════════════════════════
+// INTERSECTION OBSERVER (Scroll Animations)
+// ═══════════════════════════════════════
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.07 });
+document.querySelectorAll('.anim').forEach(el => obs.observe(el));
+
+// ═══════════════════════════════════════
+// ANIMATED COUNTERS
+// ═══════════════════════════════════════
+function animateCounter(el, target, prefix='', suffix='') {
+  let current = 0;
+  const step = Math.ceil(target / 60);
+  const timer = setInterval(() => {
+    current = Math.min(current + step, target);
+    if(el.querySelector('span')) el.querySelector('span').textContent = current;
+    else el.textContent = prefix + current + suffix;
+    if(current >= target) clearInterval(timer);
+  }, 25);
+}
+const counterObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting && !e.target.dataset.counted) {
+      e.target.dataset.counted = '1';
+      const target = parseInt(e.target.getAttribute('data-count'));
+      animateCounter(e.target, target);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-count]').forEach(el => counterObs.observe(el));
+
+// Bar chart animation
+const barObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      e.target.querySelectorAll('.e-fill').forEach(bar => {
+        const w = bar.style.width; bar.style.width='0';
+        setTimeout(() => bar.style.width=w, 100);
+      });
+    }
+  });
+}, {threshold:.3});
+document.querySelectorAll('.earnings-chart').forEach(el => barObs.observe(el));
+
+// ═══════════════════════════════════════
+// MOBILE MENU
+// ═══════════════════════════════════════
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+// ═══════════════════════════════════════
+// BACK TO TOP
+// ═══════════════════════════════════════
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('backTop');
+  btn.classList.toggle('visible', window.scrollY > 400);
+});
+
+// ═══════════════════════════════════════
+// TOAST NOTIFICATIONS
+// ═══════════════════════════════════════
+function showToast(msg, type='success', duration=4000) {
+  const c = document.getElementById('toastContainer');
+  const t = document.createElement('div');
+  t.className = `toast ${type}`;
+  t.innerHTML = msg;
+  c.appendChild(t);
+  setTimeout(() => { t.style.opacity='0'; t.style.transform='translateX(40px)'; t.style.transition='all .3s'; setTimeout(() => t.remove(), 300); }, duration);
+}
+
+// ═══════════════════════════════════════
+// MODAL SYSTEM
+// ═══════════════════════════════════════
+const modalContents = {
+  'sacred-sponsor': `
+    <h2>🕋 Sponsor Makka Madina Aqsa</h2>
+    <p>Makka Madina Aqsa channel — global Muslim audience ke liye premium sponsorship opportunities.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:1rem 0">
+      <div style="background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.2);border-radius:12px;padding:1rem;text-align:center"><div style="font-size:1.3rem">🕌</div><div style="font-weight:700;font-size:.9rem;margin:.3rem 0">Ramadan Campaign</div><div style="color:var(--gold);font-size:.82rem">₹1L–₹10L</div></div>
+      <div style="background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.2);border-radius:12px;padding:1rem;text-align:center"><div style="font-size:1.3rem">✈️</div><div style="font-weight:700;font-size:.9rem;margin:.3rem 0">Hajj/Umrah Agency</div><div style="color:var(--gold);font-size:.82rem">₹2L–₹15L</div></div>
+      <div style="background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.2);border-radius:12px;padding:1rem;text-align:center"><div style="font-size:1.3rem">🥩</div><div style="font-weight:700;font-size:.9rem;margin:.3rem 0">Halal Food Brand</div><div style="color:var(--gold);font-size:.82rem">₹50K–₹5L</div></div>
+      <div style="background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.2);border-radius:12px;padding:1rem;text-align:center"><div style="font-size:1.3rem">🏦</div><div style="font-weight:700;font-size:.9rem;margin:.3rem 0">Islamic Finance</div><div style="color:var(--gold);font-size:.82rem">₹1L–₹8L</div></div>
+    </div>
+    <div class="fg"><label>Brand / Company Name</label><input type="text" id="m_brand" placeholder="Your brand name"></div>
+    <div class="fg"><label>Contact (WhatsApp / Email)</label><input type="text" id="m_contact" placeholder="+91..."></div>
+    <div class="fg"><label>Budget Range</label><select id="m_budget"><option>₹50K–₹2L</option><option>₹2L–₹5L</option><option>₹5L–₹15L</option><option>₹15L+</option></select></div>
+    <button class="submit-btn" onclick="submitSponsor()">📩 Send Sponsorship Request</button>`,
+
+  'course-youtube': `<h2>🎬 YouTube Growth Masterclass</h2><p>0 se 100K subscribers tak ka complete roadmap. Hindi/Urdu mein sikhao.</p><ul style="color:rgba(255,255,255,.65);font-size:.88rem;line-height:2;margin:1rem 0;list-style:none"><li>✅ Channel setup & optimization</li><li>✅ SEO, titles, thumbnails masterclass</li><li>✅ Script writing for viral videos</li><li>✅ Monetization strategies</li><li>✅ Community building tactics</li><li>✅ Analytics & growth hacking</li></ul><div style="display:flex;justify-content:space-between;align-items:center;margin:1rem 0"><div><span style="text-decoration:line-through;color:rgba(255,255,255,.3)">₹4,999</span> <span style="color:var(--gold);font-size:1.4rem;font-weight:700">₹1,999</span></div><div style="font-size:.78rem;color:rgba(255,255,255,.45)">⏱ 12 hrs · 📜 Certificate</div></div><div class="fg"><label>Your Name</label><input type="text" id="c_name" placeholder="Aapka naam"></div><div class="fg"><label>Email / WhatsApp</label><input type="text" id="c_contact" placeholder="Contact details"></div><button class="submit-btn" onclick="enrollCourse('YouTube Growth Masterclass','₹1,999')">🎓 Enroll Now — ₹1,999</button>`,
+
+  'course-voiceover': `<h2>🎤 Voiceover Artist Course</h2><p>Professional voiceover training — 15 languages mein work karo aur ₹30K–₹1.5L/month earn karo.</p><ul style="color:rgba(255,255,255,.65);font-size:.88rem;line-height:2;margin:1rem 0;list-style:none"><li>✅ Voice training & warm-up techniques</li><li>✅ Recording studio setup at home</li><li>✅ Audio editing with free tools</li><li>✅ Client acquisition strategies</li><li>✅ Rate setting & negotiation</li><li>✅ Star Hindis creator verification</li></ul><div style="display:flex;justify-content:space-between;align-items:center;margin:1rem 0"><div><span style="text-decoration:line-through;color:rgba(255,255,255,.3)">₹3,999</span> <span style="color:var(--gold);font-size:1.4rem;font-weight:700">₹2,499</span></div></div><div class="fg"><label>Your Name</label><input type="text" id="cv_name" placeholder="Aapka naam"></div><div class="fg"><label>Email / WhatsApp</label><input type="text" id="cv_contact" placeholder="Contact details"></div><button class="submit-btn" onclick="enrollCourse('Voiceover Artist Course','₹2,499')">🎤 Enroll Now — ₹2,499</button>`,
+
+  'course-translation': `<h2>🌍 Translation Business Course</h2><p>Professional translation business setup karo. AI tools + human expertise = maximum income.</p><ul style="color:rgba(255,255,255,.65);font-size:.88rem;line-height:2;margin:1rem 0;list-style:none"><li>✅ 15 Indian languages translation workflow</li><li>✅ AI translation tools mastery</li><li>✅ Quality assurance techniques</li><li>✅ Freelance platform setup</li><li>✅ Corporate client acquisition</li><li>✅ Pricing & invoice management</li></ul><div style="display:flex;justify-content:space-between;align-items:center;margin:1rem 0"><div><span style="text-decoration:line-through;color:rgba(255,255,255,.3)">₹2,999</span> <span style="color:var(--gold);font-size:1.4rem;font-weight:700">₹1,499</span></div></div><div class="fg"><label>Your Name</label><input type="text" id="ct_name" placeholder="Aapka naam"></div><div class="fg"><label>Email / WhatsApp</label><input type="text" id="ct_contact" placeholder="Contact details"></div><button class="submit-btn" onclick="enrollCourse('Translation Business Course','₹1,499')">🌍 Enroll Now — ₹1,499</button>`,
+
+  'course-branding': `<h2>🌟 Personal Branding & Fame</h2><p>Apni personal brand banao aur nationally famous ho jao. PR, media, viral campaigns — complete guide.</p><ul style="color:rgba(255,255,255,.65);font-size:.88rem;line-height:2;margin:1rem 0;list-style:none"><li>✅ Personal brand identity creation</li><li>✅ PR & media outreach strategy</li><li>✅ Viral content formula</li><li>✅ TEDx & public speaking</li><li>✅ News coverage tactics</li><li>✅ Monetization through personal brand</li></ul><div style="display:flex;justify-content:space-between;align-items:center;margin:1rem 0"><div><span style="text-decoration:line-through;color:rgba(255,255,255,.3)">₹5,999</span> <span style="color:var(--gold);font-size:1.4rem;font-weight:700">₹2,999</span></div></div><div class="fg"><label>Your Name</label><input type="text" id="cb_name" placeholder="Aapka naam"></div><div class="fg"><label>Email / WhatsApp</label><input type="text" id="cb_contact" placeholder="Contact details"></div><button class="submit-btn" onclick="enrollCourse('Personal Branding Course','₹2,999')">🌟 Enroll Now — ₹2,999</button>`,
+
+  'course-ads': `<h2>🤖 AI Advertising Course</h2><p>AI tools se premium ad campaigns banao. Star AI Ads jaisi production house kaise chalate hain.</p><ul style="color:rgba(255,255,255,.65);font-size:.88rem;line-height:2;margin:1rem 0;list-style:none"><li>✅ AI ad creation tools mastery</li><li>✅ Multilingual ad campaign strategy</li><li>✅ Video ad production workflow</li><li>✅ Client pitching & closing</li><li>✅ Analytics & ROI reporting</li></ul><div style="margin:1rem 0"><span style="text-decoration:line-through;color:rgba(255,255,255,.3)">₹4,499</span> <span style="color:var(--gold);font-size:1.4rem;font-weight:700">₹2,199</span></div><div class="fg"><label>Your Name</label><input type="text" id="ca_name" placeholder="Aapka naam"></div><div class="fg"><label>Email / WhatsApp</label><input type="text" id="ca_contact" placeholder="Contact details"></div><button class="submit-btn" onclick="enrollCourse('AI Advertising Course','₹2,199')">🤖 Enroll Now — ₹2,199</button>`,
+
+  'course-free': `<h2>🚀 Star Hindis Starter Kit — FREE</h2><p>Bilkul free guide — creator ke liye sab kuch jo shuru mein chahiye.</p><ul style="color:rgba(255,255,255,.65);font-size:.88rem;line-height:2;margin:1rem 0;list-style:none"><li>✅ Star Hindis ecosystem overview</li><li>✅ Top 10 free creator tools list</li><li>✅ Basic YouTube channel setup guide</li><li>✅ Social media quick-start checklist</li><li>✅ How to join Star Hindis Creator Network</li></ul><div style="color:var(--gold);font-size:1.4rem;font-weight:700;margin:1rem 0">COMPLETELY FREE 🎁</div><div class="fg"><label>Your Name</label><input type="text" id="cf_name" placeholder="Aapka naam"></div><div class="fg"><label>WhatsApp Number</label><input type="text" id="cf_contact" placeholder="+91..."></div><button class="submit-btn" style="background:linear-gradient(135deg,var(--green),#43A047)" onclick="enrollCourse('Free Starter Kit','FREE')">🎁 Get Free Starter Kit</button>`,
+
+  'creator-details': `<h2>🎤 Creator Network — Full Details</h2><p>Star Hindis Creator Network — India ka sabse bada multilingual talent agency.</p><div style="margin:1rem 0;display:grid;gap:.7rem"><div style="background:rgba(255,255,255,.04);border-radius:10px;padding:1rem"><strong>💰 Revenue Share:</strong><span style="color:rgba(255,255,255,.6);font-size:.88rem"> Creator 80% + Platform 20%</span></div><div style="background:rgba(255,255,255,.04);border-radius:10px;padding:1rem"><strong>🎯 Project Types:</strong><span style="color:rgba(255,255,255,.6);font-size:.88rem"> Voiceover, Translation, Script writing, Video editing, Cultural reporting</span></div><div style="background:rgba(255,255,255,.04);border-radius:10px;padding:1rem"><strong>🌍 Languages:</strong><span style="color:rgba(255,255,255,.6);font-size:.88rem"> 15+ Indian & international languages</span></div><div style="background:rgba(255,255,255,.04);border-radius:10px;padding:1rem"><strong>📊 Avg Income:</strong><span style="color:rgba(255,255,255,.6);font-size:.88rem"> ₹10K–₹1.5L/month depending on skill & activity</span></div><div style="background:rgba(255,255,255,.04);border-radius:10px;padding:1rem"><strong>⏱️ Payment:</strong><span style="color:rgba(255,255,255,.6);font-size:.88rem"> Weekly payments via UPI / Bank Transfer</span></div></div><a href="#enroll" class="submit-btn" style="display:block;text-align:center;text-decoration:none" onclick="closeModal()">🚀 Enroll Now — It's Free</a>`,
+
+  'brand-inquiry': `<h2>📩 Brand / Company Inquiry</h2><p>Apni brand ke liye Star Hindis ke saath partnership ki inquiry bhejo.</p><div class="fg"><label>Brand / Company Name *</label><input type="text" id="bi_brand" placeholder="Your company name"></div><div class="fg"><label>Contact Person</label><input type="text" id="bi_person" placeholder="Name"></div><div class="fg"><label>WhatsApp / Email *</label><input type="text" id="bi_contact" placeholder="+91 or email"></div><div class="fg"><label>Service Interested In</label><select id="bi_service"><option>YouTube Sponsorship</option><option>Content Production</option><option>Social Media Management</option><option>AI Translation & Dubbing</option><option>Government Campaign</option><option>Makka Madina Sponsorship</option><option>Full Partnership</option></select></div><div class="fg"><label>Monthly Budget</label><select id="bi_budget"><option>Under ₹50K</option><option>₹50K – ₹2L</option><option>₹2L – ₹10L</option><option>₹10L+</option></select></div><div class="fg"><label>Message / Requirements</label><textarea id="bi_msg" placeholder="Tell us about your brand and campaign goals..."></textarea></div><button class="submit-btn" onclick="submitBrandInquiry()">📩 Submit Brand Inquiry</button>`,
+
+  'plan-pro': `<h2>🚀 Creator Pro — ₹299/month</h2><p>India's best multilingual creator membership. Join 1000+ creators.</p><ul style="color:rgba(255,255,255,.65);font-size:.88rem;line-height:2;margin:1rem 0;list-style:none"><li>✅ All 6 Academy courses (worth ₹15,000)</li><li>✅ Featured creator badge on all platforms</li><li>✅ Direct access to brand deals</li><li>✅ Monthly group mentorship call</li><li>✅ Private Telegram community</li><li>✅ Priority job matching</li></ul><div class="fg"><label>Name</label><input type="text" id="pp_name" placeholder="Your name"></div><div class="fg"><label>Email</label><input type="email" id="pp_email" placeholder="email@example.com"></div><div class="fg"><label>WhatsApp</label><input type="tel" id="pp_phone" placeholder="+91..."></div><button class="submit-btn" onclick="signupPlan('Creator Pro','₹299/month')">💳 Join Creator Pro — ₹299/month</button>`,
+
+  'plan-brand': `<h2>🤝 Brand Partner — ₹4,999/month</h2><p>Premium brand partnership with dedicated account management.</p><div class="fg"><label>Company Name</label><input type="text" id="pb_company" placeholder="Your company"></div><div class="fg"><label>Contact Person</label><input type="text" id="pb_name" placeholder="Name"></div><div class="fg"><label>Email</label><input type="email" id="pb_email" placeholder="email@example.com"></div><div class="fg"><label>Campaign Goals</label><textarea id="pb_goals" placeholder="What do you want to achieve with Star Hindis?"></textarea></div><button class="submit-btn" style="background:linear-gradient(135deg,var(--sky),#1E88E5)" onclick="signupPlan('Brand Partner','₹4,999/month')">🤝 Become Brand Partner</button>`,
+
+  'plan-enterprise': `<h2>🏢 Enterprise — Custom Pricing</h2><p>For large brands, government agencies & enterprise clients.</p><div class="fg"><label>Organization Name *</label><input type="text" id="pe_org" placeholder="Organization / Ministry name"></div><div class="fg"><label>Contact Person *</label><input type="text" id="pe_name" placeholder="Name & Designation"></div><div class="fg"><label>Email *</label><input type="email" id="pe_email" placeholder="official@organization.com"></div><div class="fg"><label>Phone</label><input type="tel" id="pe_phone" placeholder="+91..."></div><div class="fg"><label>Requirement Summary</label><textarea id="pe_req" placeholder="Describe your requirements, budget range, timeline..."></textarea></div><button class="submit-btn" style="background:linear-gradient(135deg,var(--gold),#FFC947);color:var(--navy)" onclick="signupPlan('Enterprise','Custom')">📞 Request Enterprise Quote</button>`,
+
+  'pr-press': `<h2>📰 Press Release Service</h2><p>Professional PR writing + distribution to 100+ media outlets.</p><div style="margin:1rem 0;display:grid;gap:.6rem"><div style="background:rgba(255,255,255,.04);border-radius:10px;padding:.9rem;font-size:.85rem"><strong>Basic Package — ₹10K:</strong> Press release writing + 20 outlets</div><div style="background:rgba(255,255,255,.04);border-radius:10px;padding:.9rem;font-size:.85rem"><strong>Standard — ₹25K:</strong> Writing + 50 national outlets + 3 regional TV</div><div style="background:rgba(255,255,255,.04);border-radius:10px;padding:.9rem;font-size:.85rem"><strong>Premium — ₹50K:</strong> Writing + 100+ outlets + guaranteed coverage</div></div><div class="fg"><label>Contact Details</label><input type="text" id="pr_contact" placeholder="Name, WhatsApp / Email"></div><button class="submit-btn" onclick="submitBrandInquiry('Press Release Service')">📩 Inquire Now</button>`,
+
+  'brand-yt': `<h2>🎬 YouTube Channel Sponsorship</h2><p>23 channels mein apni brand ka message pahunchao.</p><div style="margin:1rem 0;display:grid;gap:.6rem"><div style="background:rgba(255,255,255,.04);border-radius:10px;padding:.9rem;font-size:.85rem"><strong>Single Channel:</strong> ₹50K – ₹5L per video</div><div style="background:rgba(255,255,255,.04);border-radius:10px;padding:.9rem;font-size:.85rem"><strong>Language Pack (5 channels):</strong> ₹2L – ₹15L per campaign</div><div style="background:rgba(255,255,255,.04);border-radius:10px;padding:.9rem;font-size:.85rem"><strong>Full Network (all 23):</strong> ₹10L – ₹50L per campaign</div></div><div class="fg"><label>Brand Name & Contact</label><input type="text" id="byt_contact" placeholder="Brand name, WhatsApp / Email"></div><div class="fg"><label>Budget</label><select id="byt_budget"><option>₹50K–₹2L</option><option>₹2L–₹10L</option><option>₹10L–₹50L</option><option>₹50L+</option></select></div><button class="submit-btn" onclick="submitBrandInquiry('YouTube Sponsorship')">📩 Get Sponsorship Package</button>`,
+
+  'pr-viral': `<h2>🔥 Viral Campaign Strategy</h2><p>Trending challenges, hashtag campaigns, influencer collabs — viral hone ka proven formula.</p><div style="margin:1rem 0;color:rgba(255,255,255,.65);font-size:.88rem;line-height:1.8"><p>Our viral campaign package includes:</p><ul style="list-style:none;margin-top:.5rem"><li>✅ Viral challenge concept development</li><li>✅ Hashtag strategy & rollout</li><li>✅ 50+ creator collaboration outreach</li><li>✅ Cross-platform execution</li><li>✅ Real-time monitoring & optimization</li></ul></div><div class="fg"><label>Your Name / Brand</label><input type="text" id="viral_contact" placeholder="Name & contact"></div><button class="submit-btn" onclick="submitBrandInquiry('Viral Campaign')">🔥 Start Viral Campaign</button>`,
+
+  'brand-content': '<h2>✍️ Content Production</h2><p>Multilingual ad films, voiceovers, translations — premium quality content at scale.</p><div class="fg"><label>Brand & Contact</label><input type="text" id="bc_contact" placeholder="Brand name, WhatsApp / Email"></div><div class="fg"><label>Content Type Needed</label><select id="bc_type"><option>Ad Film / TVC</option><option>Voiceover Only</option><option>Translation</option><option>Social Media Content</option><option>Documentary</option><option>Full Production Package</option></select></div><button class="submit-btn" onclick="submitBrandInquiry(\'Content Production\')">📩 Get Production Quote</button>',
+
+  'brand-social': '<h2>📱 Social Media Management</h2><p>All 7 platforms professionally managed. Regional content. Monthly reports.</p><div class="fg"><label>Brand & Contact</label><input type="text" id="bs_contact" placeholder="Brand name, WhatsApp / Email"></div><div class="fg"><label>Monthly Budget</label><select><option>₹15K–₹30K</option><option>₹30K–₹60K</option><option>₹60K–₹1L</option><option>₹1L+</option></select></div><button class="submit-btn" onclick="submitBrandInquiry(\'Social Media Management\')">📩 Inquire Now</button>',
+
+  'brand-govt': '<h2>🏛️ Government Campaign Partnership</h2><p>Digital India, tourism, scheme awareness — multilingual government campaigns. We are a trusted partner.</p><div class="fg"><label>Ministry / Department</label><input type="text" id="bg_dept" placeholder="Ministry / Department name"></div><div class="fg"><label>Contact & Designation</label><input type="text" id="bg_contact" placeholder="Name, designation, email"></div><div class="fg"><label>Campaign Requirement</label><textarea id="bg_req" placeholder="Campaign objective, languages needed, timeline..."></textarea></div><button class="submit-btn" onclick="submitBrandInquiry(\'Government Campaign\')">📩 Submit Government Inquiry</button>',
+
+  'brand-ai': '<h2>🤖 AI Translation & Dubbing</h2><p>Your content automatically translated and dubbed in 15+ languages using AI.</p><div class="fg"><label>Brand & Contact</label><input type="text" id="bai_contact" placeholder="Company name, WhatsApp / Email"></div><div class="fg"><label>Source Language</label><select><option>Hindi</option><option>English</option><option>Other</option></select></div><div class="fg"><label>Target Languages Needed</label><input type="text" id="bai_langs" placeholder="e.g. Tamil, Telugu, Malayalam, Kannada"></div><div class="fg"><label>Content Volume</label><select><option>1–5 videos/month</option><option>6–20 videos/month</option><option>20+ videos/month</option></select></div><button class="submit-btn" onclick="submitBrandInquiry(\'AI Translation & Dubbing\')">🤖 Get AI Services Quote</button>',
+
+  'pr-news': '<h2>📺 Regional TV & News Placement</h2><p>Hindi, Urdu, Tamil, Telugu news channels mein coverage dilao.</p><div class="fg"><label>Your Name / Brand</label><input type="text" id="pn_contact" placeholder="Name & contact"></div><div class="fg"><label>Story / News Angle</label><textarea id="pn_story" placeholder="What is the story you want to cover?"></textarea></div><button class="submit-btn" onclick="submitBrandInquiry(\'News Placement\')">📺 Inquire About Coverage</button>',
+
+  'pr-social-mgmt': '<h2>📱 Social Media Management</h2><p>Complete social media management across all 7 platforms.</p><div class="fg"><label>Brand & Contact</label><input type="text" id="psm_contact" placeholder="Brand, WhatsApp / Email"></div><button class="submit-btn" onclick="submitBrandInquiry(\'Social Media Management PR\')">📩 Get Quote</button>'
+};
+
+function openModal(key) {
+  const content = modalContents[key] || '<h2>Coming Soon</h2><p>Yeh feature bahut jald available hoga.</p>';
+  document.getElementById('modalContent').innerHTML = content;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('modal').addEventListener('click', e => { if(e.target===e.currentTarget) closeModal(); });
+
+// ═══════════════════════════════════════
+// CHANNEL FILTER & SEARCH
+// ═══════════════════════════════════════
+function filterCh(cat, btn) {
+  document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.ch-card').forEach(card => {
+    card.style.display = (cat==='all' || card.dataset.cat===cat) ? '' : 'none';
+  });
+}
+function searchChannels(val) {
+  const q = val.toLowerCase();
+  document.querySelectorAll('.ch-card').forEach(card => {
+    card.style.display = card.dataset.name.includes(q) ? '' : 'none';
+  });
+  document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+  if(!q) document.querySelector('.cat-tab').classList.add('active');
+}
+
+// ═══════════════════════════════════════
+// MULTI-STEP FORM
+// ═══════════════════════════════════════
+function nextStep(current) {
+  if(current === 1) {
+    const name = document.getElementById('f_name').value.trim();
+    const phone = document.getElementById('f_phone').value.trim();
+    if(!name || !phone) { showToast('⚠️ Name aur WhatsApp number required hai!', 'error'); return; }
+    document.getElementById('step1').classList.remove('active');
+    document.getElementById('step2').classList.add('active');
+    document.getElementById('si1').classList.replace('active','done');
+    document.getElementById('si2').classList.add('active');
+  } else if(current === 2) {
+    const lang = document.getElementById('f_lang').value;
+    if(DB.selectedRoles.length === 0) { showToast('⚠️ Kam se kam ek role select karo!', 'error'); return; }
+    if(!lang) { showToast('⚠️ Apni primary language select karo!', 'error'); return; }
+    // Build summary
+    const summary = `
+      <strong>👤 Name:</strong> ${document.getElementById('f_name').value}<br>
+      <strong>📱 WhatsApp:</strong> ${document.getElementById('f_phone').value}<br>
+      <strong>📧 Email:</strong> ${document.getElementById('f_email').value || 'Not provided'}<br>
+      <strong>🌍 Country:</strong> ${document.getElementById('f_country').value}<br>
+      <strong>🎭 Roles:</strong> ${DB.selectedRoles.join(', ')}<br>
+      <strong>🗣️ Language:</strong> ${lang}<br>
+      <strong>💼 Experience:</strong> ${document.getElementById('f_exp').value}`;
+    document.getElementById('enrollSummary').innerHTML = summary;
+    document.getElementById('step2').classList.remove('active');
+    document.getElementById('step3').classList.add('active');
+    document.getElementById('si2').classList.replace('active','done');
+    document.getElementById('si3').classList.add('active');
+  }
+}
+function prevStep(current) {
+  if(current === 2) {
+    document.getElementById('step2').classList.remove('active');
+    document.getElementById('step1').classList.add('active');
+    document.getElementById('si1').classList.replace('done','active');
+    document.getElementById('si2').classList.remove('active');
+  } else if(current === 3) {
+    document.getElementById('step3').classList.remove('active');
+    document.getElementById('step2').classList.add('active');
+    document.getElementById('si2').classList.replace('done','active');
+    document.getElementById('si3').classList.remove('active');
+  }
+}
+function toggleRole(el, role) {
+  el.classList.toggle('selected');
+  if(el.classList.contains('selected')) { if(!DB.selectedRoles.includes(role)) DB.selectedRoles.push(role); }
+  else { DB.selectedRoles = DB.selectedRoles.filter(r => r !== role); }
+}
+function submitEnroll() {
+  const why = document.getElementById('f_why').value.trim();
+  if(!why) { showToast('⚠️ Please apni story batao!', 'error'); return; }
+  const entry = {
+    id: DB.enrollments.length + 1,
+    name: document.getElementById('f_name').value,
+    phone: document.getElementById('f_phone').value,
+    email: document.getElementById('f_email').value,
+    country: document.getElementById('f_country').value,
+    city: document.getElementById('f_city').value,
+    roles: [...DB.selectedRoles],
+    language: document.getElementById('f_lang').value,
+    experience: document.getElementById('f_exp').value,
+    portfolio: document.getElementById('f_portfolio').value,
+    why: why,
+    source: document.getElementById('f_source').value,
+    status: 'Pending',
+    time: new Date().toLocaleString('en-IN')
+  };
+  DB.enrollments.push(entry);
+  DB.selectedRoles = [];
+  document.getElementById('step3').classList.remove('active');
+  document.getElementById('step4').classList.add('active');
+  document.getElementById('si3').classList.replace('active','done');
+  updateAdminStats();
+  showToast('🎉 Enrollment successful! Welcome to Star Hindis!');
+}
+
+// ═══════════════════════════════════════
+// COURSE ENROLLMENT
+// ═══════════════════════════════════════
+function enrollCourse(name, price) {
+  const nameFields = document.querySelectorAll('[id^="c_name"],[id^="cv_name"],[id^="ct_name"],[id^="cb_name"],[id^="ca_name"],[id^="cf_name"]');
+  const contactFields = document.querySelectorAll('[id^="c_contact"],[id^="cv_contact"],[id^="ct_contact"],[id^="cb_contact"],[id^="ca_contact"],[id^="cf_contact"]');
+  let n='', c='';
+  nameFields.forEach(f => { if(document.getElementById('modalContent').contains(f)) n=f.value; });
+  contactFields.forEach(f => { if(document.getElementById('modalContent').contains(f)) c=f.value; });
+  if(!n || !c) { showToast('⚠️ Name aur contact required!', 'error'); return; }
+  DB.planSignups.push({ id: DB.planSignups.length+1, name: n, email: c, plan: name, amount: price, status: 'New', time: new Date().toLocaleString('en-IN') });
+  updateAdminStats();
+  closeModal();
+  showToast(`✅ ${name} mein enrolled! Hum jald contact karenge.`);
+}
+
+// ═══════════════════════════════════════
+// BRAND INQUIRY
+// ═══════════════════════════════════════
+function submitBrandInquiry(type) {
+  const allInputs = document.querySelectorAll('#modalContent input, #modalContent select, #modalContent textarea');
+  let contact = '';
+  allInputs.forEach(inp => { if(inp.value && (inp.type==='text'||inp.type==='tel'||inp.type==='email')) contact = inp.value; });
+  DB.brandInquiries.push({ id: DB.brandInquiries.length+1, name: contact||'Anonymous', contact: contact, type: type||'General', budget: 'TBD', status: 'New', time: new Date().toLocaleString('en-IN') });
+  updateAdminStats();
+  closeModal();
+  showToast('✅ Inquiry submit ho gayi! 24 hours mein contact karenge. WhatsApp: 0029VbB4Rv1It5rwuKwvst1o');
+}
+
+// ═══════════════════════════════════════
+// SPONSOR SUBMIT
+// ═══════════════════════════════════════
+function submitSponsor() {
+  const brand = document.getElementById('m_brand')?.value || '';
+  const contact = document.getElementById('m_contact')?.value || '';
+  if(!brand || !contact) { showToast('⚠️ Brand name aur contact required!', 'error'); return; }
+  DB.sponsorRequests.push({ id: DB.sponsorRequests.length+1, brand, contact, budget: document.getElementById('m_budget')?.value||'TBD', status: 'New', time: new Date().toLocaleString('en-IN') });
+  DB.brandInquiries.push({ id: DB.brandInquiries.length+1, name: brand, contact, type: 'Sacred Channel Sponsorship', budget: document.getElementById('m_budget')?.value||'TBD', status: 'New', time: new Date().toLocaleString('en-IN') });
+  updateAdminStats();
+  closeModal();
+  showToast('✅ Sponsorship request submit! 24 hrs mein reply milega. JazakAllah!');
+}
+
+// ═══════════════════════════════════════
+// PLAN SIGNUP
+// ═══════════════════════════════════════
+function signupPlan(plan, price) {
+  const allInputs = document.querySelectorAll('#modalContent input');
+  let name='', email='', phone='';
+  allInputs.forEach(inp => {
+    if(inp.type==='text' && !name) name = inp.value;
+    if(inp.type==='email') email = inp.value;
+    if(inp.type==='tel') phone = inp.value;
+  });
+  if(!name) { showToast('⚠️ Name required!', 'error'); return; }
+  DB.planSignups.push({ id: DB.planSignups.length+1, name, email: email||phone, plan, amount: price, status: 'New', time: new Date().toLocaleString('en-IN') });
+  updateAdminStats();
+  closeModal();
+  showToast(`🎉 ${plan} signup successful! Payment link WhatsApp par bheja jayega.`);
+}
+
+// ═══════════════════════════════════════
+// ADMIN PANEL
+// ═══════════════════════════════════════
+const ADMIN_PASS = 'starhindis2026';
+function adminLogin() {
+  const pass = document.getElementById('adminPass').value;
+  if(pass === ADMIN_PASS) {
+    document.getElementById('adminLogin').style.display = 'none';
+    document.getElementById('adminContent').style.display = 'block';
+    updateAdminStats();
+    renderAdminTables();
+    showToast('✅ Admin panel mein welcome hai!');
+  } else {
+    showToast('❌ Wrong password!', 'error');
+    document.getElementById('adminPass').value = '';
+  }
+}
+function adminLogout() {
+  document.getElementById('adminLogin').style.display = 'block';
+  document.getElementById('adminContent').style.display = 'none';
+  document.getElementById('adminPass').value = '';
+}
+function updateAdminStats() {
+  document.getElementById('adEnrollCount').textContent = DB.enrollments.length;
+  document.getElementById('adCourseCount').textContent = DB.planSignups.filter(p => !['Creator Pro','Brand Partner','Enterprise'].includes(p.plan)).length;
+  document.getElementById('adBrandCount').textContent = DB.brandInquiries.length;
+  document.getElementById('adPlanCount').textContent = DB.planSignups.filter(p => ['Creator Pro','Brand Partner','Enterprise'].includes(p.plan)).length;
+  document.getElementById('adSponsorCount').textContent = DB.sponsorRequests.length;
+  if(document.getElementById('adminContent').style.display !== 'none') renderAdminTables();
+}
+function renderAdminTables() {
+  // Enrollments
+  const et = document.getElementById('enrollTable');
+  et.innerHTML = DB.enrollments.length ? DB.enrollments.map(e => `<tr><td>${e.id}</td><td>${e.name}</td><td>${e.phone}</td><td>${e.roles.join(', ')}</td><td>${e.language}</td><td>${e.country}</td><td><span class="status-badge s-pending">${e.status}</span></td><td style="font-size:.72rem">${e.time}</td></tr>`).join('') : '<tr><td colspan="8" style="text-align:center;color:rgba(255,255,255,.3);padding:1.5rem">No enrollments yet</td></tr>';
+  // Brand
+  const bt = document.getElementById('brandTable');
+  bt.innerHTML = DB.brandInquiries.length ? DB.brandInquiries.map(b => `<tr><td>${b.id}</td><td>${b.name}</td><td>${b.contact}</td><td>${b.type}</td><td>${b.budget}</td><td><span class="status-badge s-new">${b.status}</span></td><td style="font-size:.72rem">${b.time}</td></tr>`).join('') : '<tr><td colspan="7" style="text-align:center;color:rgba(255,255,255,.3);padding:1.5rem">No inquiries yet</td></tr>';
+  // Plans
+  const pt = document.getElementById('planTable');
+  pt.innerHTML = DB.planSignups.length ? DB.planSignups.map(p => `<tr><td>${p.id}</td><td>${p.name}</td><td>${p.email}</td><td>${p.plan}</td><td>${p.amount}</td><td><span class="status-badge s-new">${p.status}</span></td><td style="font-size:.72rem">${p.time}</td></tr>`).join('') : '<tr><td colspan="7" style="text-align:center;color:rgba(255,255,255,.3);padding:1.5rem">No signups yet</td></tr>';
+}
+function exportData() {
+  const data = JSON.stringify({ enrollments: DB.enrollments, brandInquiries: DB.brandInquiries, planSignups: DB.planSignups, sponsorRequests: DB.sponsorRequests }, null, 2);
+  const blob = new Blob([data], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href=url; a.download='starhindis_data.json'; a.click();
+  showToast('📥 Data exported as JSON!');
+}
+function clearData() {
+  if(confirm('Sab data clear karna chahte hain? Yeh undo nahi hoga.')) {
+    DB.enrollments=[]; DB.brandInquiries=[]; DB.planSignups=[]; DB.sponsorRequests=[];
+    updateAdminStats(); renderAdminTables();
+    showToast('🗑️ All data cleared.', 'error');
+  }
+}
+</script>
+</body>
+</html>
