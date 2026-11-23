@@ -19,7 +19,7 @@ export default function FounderPage() {
               <div className="flex justify-center">
                 <div className="w-48 h-48 rounded-full border-4 border-brand-200 bg-white p-2 shadow-xl relative overflow-hidden">
                   <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1272a8e396?q=80&w=600&auto=format&fit=crop"
+                    src="/founder.jpg"
                     alt="Mohammad Ishaq"
                     className="w-full h-full object-cover rounded-full"
                   />
@@ -32,7 +32,7 @@ export default function FounderPage() {
               <div className="space-y-6">
                 <h2 className="font-display font-bold text-3xl text-gray-900">Mohammad Ishaq</h2>
                 <p className="text-lg text-gray-600">
-                  The visionary behind Star Hindis — India's largest multilingual digital media &amp; monetization ecosystem spanning 23 channels and 16 languages.
+                  The visionary behind Star Hindis — India's largest multilingual digital media &amp; monetization ecosystem spanning 29 channels and 22 languages.
                 </p>
                 <p className="text-lg text-gray-600">
                   His mission: <em className="text-brand-600 font-semibold">"Jahan Har Hindustani Digital Star Banta Hai."</em> — Where every Indian becomes a digital star.
@@ -40,11 +40,23 @@ export default function FounderPage() {
                 <div className="pt-6 border-t border-gray-100">
                   <h4 className="font-bold text-gray-900 mb-3">Connect</h4>
                   <div className="space-y-2">
-                    <a href="https://www.youtube.com/@StarIshaaq" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-brand-600 font-semibold hover:underline">
-                      ▶ YouTube: @StarIshaaq
+                    <a href="https://www.youtube.com/@starishaaq" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-brand-600 font-semibold hover:underline">
+                      ▶ YouTube: @starishaaq
                     </a>
-                    <a href="https://www.ishaaq.in/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-brand-600 font-semibold hover:underline">
-                      🔗 ishaaq.in
+                    <a href="https://www.instagram.com/starishaaq" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-brand-600 font-semibold hover:underline">
+                      📸 Instagram: @starishaaq
+                    </a>
+                    <a href="https://www.facebook.com/starishaaq" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-brand-600 font-semibold hover:underline">
+                      👍 Facebook: @starishaaq
+                    </a>
+                    <a href="https://www.threads.net/@starishaaq" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-brand-600 font-semibold hover:underline">
+                      🧵 Threads: @starishaaq
+                    </a>
+                    <a href="https://www.linkedin.com/in/starishaaq" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-brand-600 font-semibold hover:underline">
+                      💼 LinkedIn: @starishaaq
+                    </a>
+                    <a href="mailto:starhindis.com@gmail.com" className="flex items-center gap-3 text-brand-600 font-semibold hover:underline">
+                      ✉️ Email: starhindis.com@gmail.com
                     </a>
                   </div>
                 </div>

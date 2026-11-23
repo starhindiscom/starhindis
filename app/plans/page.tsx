@@ -51,7 +51,7 @@ export default function PlansPage() {
                     ))}
                   </ul>
                   <a
-                    href={plan.ctaHref}
+                    href={`mailto:starhindis.com@gmail.com?subject=Plan Signup - ${plan.name}&body=I want to sign up for the ${plan.name} plan (${plan.priceLabel}${plan.period}). Please send me the payment link and onboarding details.`}
                     className={cn(
                       'w-full py-4 rounded-xl text-sm font-semibold transition-all text-center border',
                       plan.featured

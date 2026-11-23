@@ -53,7 +53,7 @@ function CourseCard({ course }: { course: (typeof COURSES)[number] }) {
         <span className="text-xs font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded">-{discount}%</span>
       </div>
       <Link
-        href="/creator"
+        href={`mailto:starhindis.com@gmail.com?subject=Course Enrollment - ${course.title}&body=I want to enroll in the ${course.title} course at Star Hindis Academy. Please send me the enrollment details and payment link.`}
         className="w-full py-3 rounded-xl border border-brand-200 bg-brand-50 text-brand-700 text-sm font-semibold transition-all hover:bg-brand-600 hover:text-white flex items-center justify-center gap-2"
       >
         <Play className="w-4 h-4" /> Enroll Now <ExternalLink className="w-3 h-3" />
