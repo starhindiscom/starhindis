@@ -5,7 +5,7 @@ export const SITE = {
   tagline: 'Where Every Indian Becomes a Digital Star.',
   taglineHi: 'जहां हर हिंदुस्तानी डिजिटल स्टार बंटा है।',
   description:
-    "India's largest multilingual digital media & monetization ecosystem — 23 channels · 15+ languages · Academy · Creator Network · Brand Portal · Sponsorships · Revenue Systems — sab ek jagah.",
+    "India's largest multilingual digital media & monetization ecosystem — 29 channels · 22 languages · Academy · Creator Network · Brand Portal · Sponsorships · Revenue Systems — sab ek jagah.",
   url: 'https://www.starhindis.com',
   ogImage: '/og-image.jpg',
   founder: {
@@ -13,8 +13,8 @@ export const SITE = {
     handle: '@StarIshaaq',
     bio: 'The visionary behind Star Hindis.',
   },
-  channelsCount: 23,
-  languagesCount: 16,
+  channelsCount: 29,
+  languagesCount: 22,
 } as const;
 
 export const NAV_LINKS = [

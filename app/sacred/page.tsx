@@ -36,7 +36,7 @@ export default function SacredPage() {
                     <span className="text-gold-600">👍</span>
                     <div>
                       <div className="font-bold text-gray-900">Facebook Page</div>
-                      <a href="https://www.facebook.com/SacredMakkaMadinaAqsa" target="_blank" rel="noopener noreferrer" className="text-brand-600 text-sm hover:underline">SacredMakkaMadinaAqsa</a>
+                      <a href="https://www.facebook.com/MakkaMadinaAqsa" target="_blank" rel="noopener noreferrer" className="text-brand-600 text-sm hover:underline">MakkaMadinaAqsa</a>
                     </div>
                   </div>
                 </div>

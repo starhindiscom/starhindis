@@ -51,8 +51,8 @@ export function Hero() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 items-start justify-center text-left">
-          <Stat value="23+" label="Channels" icon="★" />
-          <Stat value="16+" label="Languages" icon="🌍" />
+          <Stat value="29+" label="Channels" icon="★" />
+          <Stat value="22+" label="Languages" icon="🌍" />
           <Stat value="4" label="Courses" icon="📚" />
           <Stat value="∞" label="Earning Potential" icon="💰" />
         </div>
