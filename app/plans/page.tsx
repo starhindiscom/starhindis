@@ -1,6 +1,7 @@
 import { Navbar, Footer } from '@/components';
 import { SectionHeader } from '@/components';
 import { PLANS } from '@/lib/data';
+import { PlanSignupForm } from '@/components/forms';
 import { baseMetadata } from '@/lib/seo';
 import { formatINR, cn } from '@/lib/utils';
 
@@ -50,17 +51,7 @@ export default function PlansPage() {
                       </li>
                     ))}
                   </ul>
-                  <a
-                    href={`mailto:starhindis.com@gmail.com?subject=Plan Signup - ${plan.name}&body=I want to sign up for the ${plan.name} plan (${plan.priceLabel}${plan.period}). Please send me the payment link and onboarding details.`}
-                    className={cn(
-                      'w-full py-4 rounded-xl text-sm font-semibold transition-all text-center border',
-                      plan.featured
-                        ? 'bg-brand-600 text-white hover:bg-brand-700 shadow-lg shadow-brand-500/40'
-                        : 'border-gray-200 text-gray-700 bg-white hover:bg-gray-50',
-                    )}
-                  >
-                    {plan.cta}
-                  </a>
+                  <PlanSignupForm planName={plan.name} />
                 </div>
               ))}
             </div>
