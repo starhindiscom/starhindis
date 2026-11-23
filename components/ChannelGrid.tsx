@@ -2,9 +2,9 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { Play, ExternalLink, Users, Globe, Film, Star as StarIcon, Rocket } from 'lucide-react';
+import { Play, Star as StarIcon } from 'lucide-react';
 import { CHANNELS } from '@/lib/data';
-import { cn, youtubeEmbed } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 
 type ChannelCategory = (typeof CHANNELS)[number]['category'];
 type FilterId = 'all' | 'main' | 'languages' | 'sacred' | 'special';
@@ -23,10 +23,10 @@ export function ChannelGrid({ initialCategory = 'all' }: { initialCategory?: Fil
             : CHANNELS.filter((c) => c.category !== 'Main' && c.category !== 'Languages');
 
   const cats = [
-    { id: 'all', label: 'All (23)' },
+    { id: 'all', label: 'All (29)' },
     { id: 'main', label: 'Main' },
     { id: 'special', label: 'Special (6)' },
-    { id: 'languages', label: 'Languages (16)' },
+    { id: 'languages', label: 'Languages (22)' },
     { id: 'sacred', label: 'Sacred' },
   ] as const;
 
@@ -64,13 +64,10 @@ export function ChannelGrid({ initialCategory = 'all' }: { initialCategory?: Fil
 
 function ChannelCard({ channel }: { channel: (typeof CHANNELS)[number] }) {
   const colorClass = channel.color === 'brand' ? 'border-brand-200 bg-brand-50 text-brand-700' : 'border-gold-200 bg-gold-50 text-gold-700';
-  const gradient = channel.color === 'brand' ? 'from-brand-500 to-pink-600' : 'from-gold-500 to-orange-500';
 
   return (
     <Link
-      href={youtubeEmbed(channel.handle)}
-      target="_blank"
-      rel="noopener noreferrer"
+      href={`/channels/${channel.id}`}
       className="group block rounded-2xl border border-gray-100 bg-white p-5 hover:border-brand-300/50 hover:shadow-xl hover:shadow-brand-100/60 transition-all hover:-translate-y-1.5"
     >
       <div className="flex items-start gap-3 mb-4">
@@ -83,15 +80,15 @@ function ChannelCard({ channel }: { channel: (typeof CHANNELS)[number] }) {
               Sacred
             </span>
           )}
-          <h3 className="font-semibold text-gray-900 leading-tight">{channel.name}</h3>
+          <h3 className="font-semibold text-gray-900 leading-tight group-hover:text-brand-600 transition-colors">{channel.name}</h3>
           <p className="text-xs text-gray-500">{channel.language}</p>
         </div>
       </div>
       <p className="text-sm text-gray-600 mb-4 line-clamp-2">{channel.tagline}</p>
-      <div className="mt-auto flex items-center justify-between pt-4 border-t border-gray-50">
-        <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">YouTube</span>
+      <div className="mt-auto pt-4 border-t border-gray-50 flex items-center justify-between">
+        <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">Channel Page</span>
         <div className="flex items-center gap-2 text-brand-600 font-semibold">
-          <ExternalLink className="w-3.5 h-3.5" /> @{channel.handle}
+          <Play className="w-3.5 h-3.5" /> Watch Playlist
         </div>
       </div>
     </Link>

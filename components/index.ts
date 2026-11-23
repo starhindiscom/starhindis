@@ -8,3 +8,4 @@ export { ChannelGrid } from './ChannelGrid';
 export { CourseGrid } from './CourseGrid';
 export { CTA } from './CTA';
 export { SocialProof } from './CTA';
+export { WorldMap } from './WorldMap';

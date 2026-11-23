@@ -1,11 +1,12 @@
+import Link from 'next/link';
 import { Navbar, Footer } from '@/components';
-import { Hero, SectionHeader, ChannelGrid, CourseGrid, CTA, SocialProof } from '@/components';
+import { Hero, SectionHeader, ChannelGrid, CourseGrid, CTA, SocialProof, WorldMap } from '@/components';
 import { baseMetadata } from '@/lib/seo';
 import { CHANNELS } from '@/lib/data';
 
 export const metadata = baseMetadata(
   'Star Hindis — Complete Digital Media Ecosystem',
-  "India's largest multilingual digital media & monetization ecosystem — 23 channels · 15+ languages · Academy · Creator Network · Brand Portal · Sponsorships · Revenue Systems.",
+  "India's largest multilingual digital media & monetization ecosystem — 29 channels · 22 languages · Academy · Creator Network · Brand Portal · Sponsorships · Revenue Systems — sab ek jagah.",
 );
 
 export default function HomePage() {
@@ -16,10 +17,12 @@ export default function HomePage() {
       <main className="flex-grow">
         <Hero />
 
+        <WorldMap />
+
         <section className="py-20 border-y border-gray-100">
           <div className="container-section">
             <SectionHeader
-              title="All 23 Channels — One Platform"
+              title="All 29 Channels — One Platform"
               subtitle="Har language, har category — ek platform. Filter karo aur directly YouTube par jaao."
             />
             <ChannelGrid initialCategory="all" />
