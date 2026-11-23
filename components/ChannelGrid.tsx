@@ -1,17 +1,26 @@
 'use client';
 
 import Link from 'next/link';
+import { useState } from 'react';
 import { Play, ExternalLink, Users, Globe, Film, Star as StarIcon, Rocket } from 'lucide-react';
 import { CHANNELS } from '@/lib/data';
 import { cn, youtubeEmbed } from '@/lib/utils';
 
-type Category = (typeof CHANNELS)[number]['category'];
+type ChannelCategory = (typeof CHANNELS)[number]['category'];
+type FilterId = 'all' | 'main' | 'languages' | 'sacred' | 'special';
 
-export function ChannelGrid({ category = 'all' }: { category?: string }) {
+export function ChannelGrid({ initialCategory = 'all' }: { initialCategory?: FilterId } = {}) {
+  const [category, setCategory] = useState<FilterId>(initialCategory);
   const filtered =
     category === 'all'
       ? CHANNELS
-      : CHANNELS.filter((c) => c.category === category || (category === 'special' && c.category !== 'Main' && c.category !== 'Languages'));
+      : category === 'main'
+        ? CHANNELS.filter((c) => c.category === 'Main')
+        : category === 'languages'
+          ? CHANNELS.filter((c) => c.category === 'Languages')
+          : category === 'sacred'
+            ? CHANNELS.filter((c) => c.category === 'Sacred')
+            : CHANNELS.filter((c) => c.category !== 'Main' && c.category !== 'Languages');
 
   const cats = [
     { id: 'all', label: 'All (23)' },
@@ -27,7 +36,7 @@ export function ChannelGrid({ category = 'all' }: { category?: string }) {
         {cats.map((c) => (
           <button
             key={c.id}
-            onClick={() => {}}
+            onClick={() => setCategory(c.id)}
             className={cn(
               'px-5 py-2 rounded-full text-sm font-medium transition-all border',
               category === c.id

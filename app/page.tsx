@@ -22,7 +22,7 @@ export default function HomePage() {
               title="All 23 Channels — One Platform"
               subtitle="Har language, har category — ek platform. Filter karo aur directly YouTube par jaao."
             />
-            <ChannelGrid category="all" />
+            <ChannelGrid initialCategory="all" />
             <div className="mt-12 flex justify-center">
               <a href="/channels" className="inline-flex items-center gap-2 font-semibold text-brand-600 hover:text-brand-700">
                 View full directory <span aria-hidden="true">→</span>

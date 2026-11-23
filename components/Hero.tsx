@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { Star, Play, ArrowRight, TrendingUp } from 'lucide-react';
+import { Star as StarIcon, Play, ArrowRight, TrendingUp, Users } from 'lucide-react';
+import { StarLogo, Wordmark } from '@/components/Logo';
 import { cn } from '@/lib/utils';
 
 export function Hero() {
@@ -11,9 +12,15 @@ export function Hero() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_40%_80%,_rgba(245,158,11,0.08)_0%,_transparent_50%)] -z-10" />
 
       <div className="container-section relative pt-20 pb-24 md:pt-32 md:pb-32 text-center">
-        <div className="inline-flex items-center gap-2 rounded-full bg-brand-50 px-4 py-1.5 text-xs font-semibold text-brand-600 border border-brand-100 mb-6 animate-fade-in">
+        <div className="inline-flex items-center gap-2 rounded-full bg-brand-50 px-4 py-1.5 text-xs font-semibold text-brand-600 border border-brand-100 mb-8 animate-fade-in">
           <span className="relative flex h-2.5 w-2.5"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span><span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-500"></span></span>
-          🚀 Now Live: 23 Channels · 15+ Languages
+          🚀 Now Live: 23 Channels · 16 Languages
+        </div>
+
+        <div className="flex justify-center mb-6">
+          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-600 via-brand-700 to-purple-900 flex items-center justify-center shadow-xl shadow-brand-500/40 animate-pulse-slow">
+            <StarLogo size={40} />
+          </div>
         </div>
 
         <h1 className="font-display font-bold text-5xl md:text-7xl text-gray-900 tracking-tight leading-tight mb-6 animate-slide-up">
@@ -44,17 +51,17 @@ export function Hero() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 items-start justify-center text-left">
-          <Stat value="23+" label="Channels" />
-          <Stat value="16+" label="Languages" />
-          <Stat value="15+" label="Course Categories" />
-          <Stat value="∞" label="Earning Potential" />
+          <Stat value="23+" label="Channels" icon="★" />
+          <Stat value="16+" label="Languages" icon="🌍" />
+          <Stat value="4" label="Courses" icon="📚" />
+          <Stat value="∞" label="Earning Potential" icon="💰" />
         </div>
 
-        <div className="mt-16 flex flex-wrap justify-center gap-3 opacity-60 grayscale animate-slide-up" style={{ animationDelay: '300ms' }}>
+        <div className="mt-20 flex flex-wrap justify-center gap-4 opacity-50 grayscale animate-slide-up" style={{ animationDelay: '300ms' }}>
           {SOCIAL_BADGES.map((s) => (
-            <span key={s.label} className="text-sm">
-              {s.icon} {s.label}
-            </span>
+            <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="text-sm flex items-center gap-2 hover:opacity-100 transition-opacity">
+              <span className="text-lg">{s.icon}</span> {s.label}
+            </a>
           ))}
         </div>
       </div>
@@ -63,18 +70,21 @@ export function Hero() {
 }
 
 const SOCIAL_BADGES = [
-  { label: 'Instagram', icon: '📸' },
-  { label: 'Facebook', icon: '👍' },
-  { label: 'YouTube', icon: '▶️' },
-  { label: 'WhatsApp', icon: '💬' },
-  { label: 'LinkedIn', icon: '💼' },
-  { label: 'Threads', icon: '🧵' },
+  { label: 'Instagram', icon: '📸', href: 'https://www.instagram.com/StarHindis' },
+  { label: 'Facebook', icon: '👍', href: 'https://www.facebook.com/StarHindis' },
+  { label: 'YouTube', icon: '▶️', href: 'https://www.youtube.com/@StarHindis' },
+  { label: 'WhatsApp', icon: '💬', href: 'https://whatsapp.com/channel/0029VbB4Rv1It5rwuKwvst1o' },
+  { label: 'LinkedIn', icon: '💼', href: 'https://www.linkedin.com/company/starhindis/' },
+  { label: 'Threads', icon: '🧵', href: 'https://www.threads.net/@StarHindis' },
 ];
 
-export function Stat({ value, label }: { value: string; label: string }) {
+export function Stat({ value, label, icon }: { value: string; label: string; icon: string }) {
   return (
-    <div className="animate-count-up">
-      <div className="text-3xl md:text-4xl font-bold text-brand-600 font-display">{value}</div>
+    <div className="animate-count-up flex flex-col items-start">
+      <div className="flex items-center gap-2 mb-1">
+        <span className="text-brand-600">{icon}</span>
+        <div className="text-3xl md:text-4xl font-bold text-brand-600 font-display">{value}</div>
+      </div>
       <div className="text-sm text-gray-500 uppercase tracking-wider">{label}</div>
     </div>
   );

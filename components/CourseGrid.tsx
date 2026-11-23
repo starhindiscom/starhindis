@@ -2,7 +2,8 @@
 
 import { COURSES } from '@/lib/data';
 import { formatINR } from '@/lib/utils';
-import { Play, Star as StarIcon, Users, Clock } from 'lucide-react';
+import { Play, Star as StarIcon, Users, Clock, ExternalLink } from 'lucide-react';
+import Link from 'next/link';
 
 export function CourseGrid() {
   return (
@@ -51,9 +52,12 @@ function CourseCard({ course }: { course: (typeof COURSES)[number] }) {
         <span className="text-sm text-gray-400 line-through">{formatINR(course.originalPrice!)}</span>
         <span className="text-xs font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded">-{discount}%</span>
       </div>
-      <button className="w-full py-3 rounded-xl border border-gray-200 bg-white text-sm font-semibold text-gray-700 hover:bg-brand-600 hover:text-white transition-all group-hover:border-brand-600 flex items-center justify-center gap-2">
-        <Play className="w-4 h-4" /> Enroll Now
-      </button>
+      <Link
+        href="/creator"
+        className="w-full py-3 rounded-xl border border-brand-200 bg-brand-50 text-brand-700 text-sm font-semibold transition-all hover:bg-brand-600 hover:text-white flex items-center justify-center gap-2"
+      >
+        <Play className="w-4 h-4" /> Enroll Now <ExternalLink className="w-3 h-3" />
+      </Link>
     </div>
   );
 }

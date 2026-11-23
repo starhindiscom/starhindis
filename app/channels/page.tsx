@@ -15,7 +15,7 @@ export default function ChannelsPage() {
               title="All 23 Star Hindis Channels"
               subtitle="Har language, har category — ek platform. Filter karo aur directly YouTube par jaao."
             />
-            <ChannelGrid category="all" />
+            <ChannelGrid initialCategory="all" />
           </div>
         </section>
       </main>

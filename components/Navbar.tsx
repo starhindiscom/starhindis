@@ -2,7 +2,8 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { Menu, X, Star, Instagram, Facebook, Youtube, MessageCircle, Linkedin } from 'lucide-react';
+import { Menu, X, Star as StarIcon, Instagram, Facebook, Youtube, MessageCircle, Linkedin, ExternalLink, ChevronRight } from 'lucide-react';
+import { StarLogo, Wordmark } from '@/components/Logo';
 import { NAV_LINKS, SOCIALS } from '@/lib/seo';
 import { cn } from '@/lib/utils';
 
@@ -23,11 +24,14 @@ export function Navbar() {
         <div className="flex items-center justify-between h-20">
           <Link
             href="/"
-            className="flex items-center gap-2 font-display font-bold text-2xl text-brand-600 tracking-tight"
+            className="flex items-center gap-3"
+            onClick={() => setOpen(false)}
           >
-            <Star className="w-7 h-7 text-gold-500 drop-shadow-[0_0_8px_rgba(245,158,11,0.4)]" />
-            <span className="hidden sm:block">Star Hindis</span>
-            <span className="block sm:hidden text-xs">Star Hindis</span>
+            <StarLogo size={28} className="drop-shadow-[0_0_12px_rgba(168,85,247,0.5)]" />
+            <div className="hidden md:flex flex-col items-start leading-tight">
+              <Wordmark language="en" className="text-xl text-brand-600" />
+              <span className="text-xs text-gray-500 font-medium tracking-wide uppercase">Digital Media Ecosystem</span>
+            </div>
           </Link>
 
           <div className="hidden md:flex items-center gap-8 text-sm font-medium">
@@ -49,9 +53,9 @@ export function Navbar() {
           <div className="flex items-center gap-3">
             <Link
               href="/plans"
-              className="hidden sm:flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand-600 text-white text-sm font-semibold shadow-lg shadow-brand-500/30 transition-all hover:bg-brand-700 hover:scale-[1.02]"
+              className="hidden sm:flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand-600 text-white text-sm font-semibold shadow-xl shadow-brand-500/40 transition-all hover:bg-brand-700 hover:-translate-y-0.5 hover:scale-[1.02]"
             >
-              Get Started
+              Get Started <ChevronRight className="w-4 h-4" />
             </Link>
             <button
               onClick={() => setOpen((o) => !o)}
@@ -79,13 +83,13 @@ export function Navbar() {
             ))}
             <div className="pt-4 border-t border-gray-100">
               <p className="px-4 py-2 text-sm text-gray-500 uppercase tracking-wider font-semibold">Connect</p>
-              <div className="flex gap-3 px-4 pb-6">
-                {SOCIALS.slice(0, 4).map((s) => {
-                  const Comp = SOCIAL_ICONS[s.icon] || Star;
+              <div className="flex gap-4 px-4 pb-6">
+                {SOCIALS.map((s) => {
+                  const Comp = SOCIAL_ICONS[s.icon];
                   return (
-                    <a key={s.href} href={s.href} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-brand-600 transition-colors">
-                      <Comp className="w-5 h-5" />
-                      <span className="ml-1 hidden sm:inline text-sm">{s.label}</span>
+                    <a key={s.href} href={s.href} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-brand-600 transition-colors flex items-center gap-2">
+                      {Comp ? <Comp className="w-5 h-5" /> : <ExternalLink className="w-5 h-5" />}
+                      <span className="hidden sm:inline text-sm">{s.label}</span>
                     </a>
                   );
                 })}
