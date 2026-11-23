@@ -25,7 +25,7 @@ export default function CreatorPage() {
                   <li>Content in any of 16 supported languages</li>
                   <li>Commitment to post weekly</li>
                 </ul>
-                <a href="#" className="text-brand-600 font-semibold text-sm hover:underline">Apply now →</a>
+                <a href="mailto:starhindis.com@gmail.com?subject=Creator Application - Star Hindis&body=I want to apply as a creator for Star Hindis. Please send me the application form." className="text-brand-600 font-semibold text-sm hover:underline">Apply now →</a>
               </div>
               <div className="p-8 rounded-2xl border border-gray-100 bg-white shadow-sm">
                 <h3 className="font-bold text-gray-900 mb-3">2. Grow</h3>
@@ -52,7 +52,7 @@ export default function CreatorPage() {
               heading="Ready to become a digital star?"
               subheading="Join free today and start building your audience in your own language."
               buttonText="Join Free — Apply as Creator"
-              buttonHref="#"
+              buttonHref="mailto:starhindis.com@gmail.com?subject=Join Free - Creator Application&body=I want to join the Star Hindis Creator Network for free. Please send me the application form and next steps."
             />
           </div>
         </section>

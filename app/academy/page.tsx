@@ -30,8 +30,8 @@ export default function AcademyPage() {
         <CTA
           heading="Enroll in the Academy today"
           subheading="Learn YouTube growth, voiceover, digital marketing and video editing — in Hindi, Urdu and 14 more Indian languages."
-          buttonText="Explore Courses"
-          buttonHref="/academy"
+          buttonText="Enroll Now — Email starhindis.com@gmail.com"
+          buttonHref="mailto:starhindis.com@gmail.com?subject=Academy Enrollment Inquiry&body=I want to enroll in Star Hindis Academy courses. Please send me the course catalog and enrollment process."
         />
       </main>
       <Footer />

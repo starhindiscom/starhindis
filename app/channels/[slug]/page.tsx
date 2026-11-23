@@ -20,6 +20,7 @@ export default function ChannelPage({ params }: { params: { slug: string } }) {
 
   const youtubeChannelUrl = `https://www.youtube.com/@${channel.handle}`;
   const youtubePlaylistUrl = `https://www.youtube.com/@${channel.handle}/featured`;
+  const youtubeEmbedUrl = `https://www.youtube.com/embed/@${channel.handle}?autoplay=1&mute=1&rel=0`;
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -104,7 +105,7 @@ export default function ChannelPage({ params }: { params: { slug: string } }) {
 
             <div className="rounded-2xl border border-gray-200 bg-gray-900 overflow-hidden shadow-2xl aspect-video relative">
               <iframe
-                src={`https://www.youtube.com/embed/@${channel.handle}?listType=featured&autoplay=1&mute=1&rel=0`}
+                src={youtubeEmbedUrl}
                 title={`${channel.name} YouTube Playlist`}
                 className="w-full h-full"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

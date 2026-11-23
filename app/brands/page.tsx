@@ -41,7 +41,7 @@ export default function BrandsPage() {
               heading="Start a campaign with Star Hindis"
               subheading="Reach Indian audiences in their own language through trusted creators."
               buttonText="Contact Brand Portal"
-              buttonHref="#"
+              buttonHref="mailto:starhindis.com@gmail.com?subject=Brand Partnership Inquiry&body=I am interested in Sponsorship Marketplace, Campaign Management and ROI & Analytics for Star Hindis creators."
             />
           </div>
         </section>

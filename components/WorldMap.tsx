@@ -188,18 +188,18 @@ const REGIONS: LanguageRegion[] = [
 ];
 
 const WORLD_MAP_PATHS = `
-<path d="M110,260 L180,255 L200,240 L170,220 L150,200 L130,210 L110,225 Z" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
-<path d="M280,290 L350,285 L360,270 L340,250 L320,240 L300,250 L290,265 Z" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
-<path d="M370,320 L440,315 L450,300 L430,285 L410,275 L390,285 L375,295 Z" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
-<path d="M460,260 L520,255 L530,245 L510,230 L490,235 L470,245 Z" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
-<path d="M560,200 L640,195 L650,185 L630,170 L610,175 L590,185 L570,195 Z" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
-<path d="M640,290 L720,285 L730,270 L710,255 L690,260 L670,270 L650,280 Z" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
-<path d="M60,400 L120,395 L130,380 L110,360 L90,365 L70,375 Z" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
-<path d="M700,250 L760,245 L770,230 L750,215 L730,220 L710,235 Z" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
-<path d="M250,380 L310,375 L320,360 L300,345 L280,350 L260,360 Z" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
-<path d="M380,380 L450,375 L460,360 L440,345 L420,350 L400,360 Z" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
-<path d="M740,380 L800,375 L810,360 L790,345 L770,350 L750,360 Z" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
-<path d="M850,380 L920,375 L930,360 L910,345 L890,350 L870,360 Z" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+<path d="M110,260 L180,255 L200,240 L170,220 L150,200 L130,210 L110,225 Z" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<path d="M280,290 L350,285 L360,270 L340,250 L320,240 L300,250 L290,265 Z" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<path d="M370,320 L440,315 L450,300 L430,285 L410,275 L390,285 L375,295 Z" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<path d="M460,260 L520,255 L530,245 L510,230 L490,235 L470,245 Z" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<path d="M560,200 L640,195 L650,185 L630,170 L610,175 L590,185 L570,195 Z" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<path d="M640,290 L720,285 L730,270 L710,255 L690,260 L670,270 L650,280 Z" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<path d="M60,400 L120,395 L130,380 L110,360 L90,365 L70,375 Z" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<path d="M700,250 L760,245 L770,230 L750,215 L730,220 L710,235 Z" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<path d="M250,380 L310,375 L320,360 L300,345 L280,350 L260,360 Z" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<path d="M380,380 L450,375 L460,360 L440,345 L420,350 L400,360 Z" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<path d="M740,380 L800,375 L810,360 L790,345 L770,350 L750,360 Z" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<path d="M850,380 L920,375 L930,360 L910,345 L890,350 L870,360 Z" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
 `;
 
 export function WorldMap() {
@@ -221,15 +221,15 @@ export function WorldMap() {
           </p>
         </div>
 
-        <div className="relative max-w-[900px] mx-auto h-[450px]">
+        <div className="relative max-w-[900px] mx-auto h-[480px]">
           <svg
             viewBox="0 0 1000 500"
             className="w-full h-full"
             preserveAspectRatio="xMidYMid meet"
           >
             <defs>
-              <filter id="mapGlow" x="-20%" y="-20%" width="140%" height="140%">
-                <feGaussianBlur stdDeviation="3" result="blur" />
+              <filter id="mapGlow" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="4" result="blur" />
                 <feComposite in="SourceGraphic" in2="blur" operator="over" />
               </filter>
             </defs>
@@ -248,29 +248,36 @@ export function WorldMap() {
                   onMouseEnter={() => setHovered(region.language)}
                   onMouseLeave={() => setHovered(null)}
                 >
-                  <circle
-                    cx={region.x}
-                    cy={region.y}
-                    r={isHovered ? 10 : 6}
-                    fill={region.color}
-                    stroke="white"
-                    strokeWidth={2}
-                    className="transition-all cursor-pointer"
-                    filter={isHovered ? 'url(#mapGlow)' : 'none'}
-                  />
+                  <g className="transition-all cursor-pointer">
+                    <circle
+                      cx={region.x}
+                      cy={region.y}
+                      r={isHovered ? 12 : 8}
+                      fill={region.color}
+                      stroke="white"
+                      strokeWidth={3}
+                      filter={isHovered ? 'url(#mapGlow)' : 'none'}
+                    />
+                    <circle
+                      cx={region.x}
+                      cy={region.y}
+                      r={3}
+                      fill="white"
+                      opacity={isHovered ? 1 : 0.6}
+                    />
+                  </g>
                   <title>{region.language} — {region.channel.name}</title>
                 </Link>
               );
             })}
           </svg>
 
-          {/* Map labels */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-wrap justify-center gap-4 text-xs text-gray-500 pointer-events-none">
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-wrap justify-center gap-6 text-xs text-gray-500 pointer-events-none">
             {REGIONS.map((r) => (
               <span
                 key={r.language}
                 className="absolute"
-                style={{ left: `${r.x / 10}%`, bottom: `${500 - r.y - 10}px` }}
+                style={{ left: `${r.x / 10}%`, bottom: `${500 - r.y - 8}px` }}
               >
                 {r.language.split(' ')[0]}
               </span>
@@ -278,14 +285,16 @@ export function WorldMap() {
           </div>
         </div>
 
-        <div className="mt-12">
-          <h3 className="text-xl font-bold text-gray-900 mb-6">All Language Channels</h3>
+        <div className="mt-16">
+          <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">
+            All Language Channels
+          </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
             {REGIONS.map((region) => (
               <Link
                 key={region.language}
                 href={`/channels/${region.channel.id}`}
-                className="flex items-center gap-3 px-4 py-3 rounded-xl border border-gray-100 bg-white hover:bg-brand-50 hover:border-brand-200 transition-all group"
+                className="flex items-center gap-3 px-4 py-3 rounded-xl border border-gray-100 bg-white hover:bg-brand-50 hover:border-brand-200 transition-all group hover:-translate-y-1"
               >
                 <div className="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold text-white" style={{ background: region.color }}>
                   {region.channel.icon}
