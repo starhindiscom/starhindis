@@ -1,5 +1,6 @@
 import { Navbar, Footer } from '@/components';
 import { SectionHeader, CTA } from '@/components';
+import { BrandPartnershipForm } from '@/components/forms';
 import { baseMetadata } from '@/lib/seo';
 
 export const metadata = baseMetadata('Brand Portal', 'Partner with Star Hindis creators. Sponsorship marketplace, campaign management and brand-safe multilingual creator network.');
@@ -37,12 +38,7 @@ export default function BrandsPage() {
               <p className="text-sm text-gray-600 mb-4">Hajj/Umrah agencies, Halal brands and Islamic finance companies — premium sponsorship slots available on the Makka Madina Aqsa sacred channel.</p>
               <a href="/sacred" className="text-brand-600 font-semibold hover:underline">View Sacred Channel →</a>
             </div>
-            <CTA
-              heading="Start a campaign with Star Hindis"
-              subheading="Reach Indian audiences in their own language through trusted creators."
-              buttonText="Contact Brand Portal"
-              buttonHref="mailto:starhindis.com@gmail.com?subject=Brand Partnership Inquiry&body=I am interested in Sponsorship Marketplace, Campaign Management and ROI & Analytics for Star Hindis creators."
-            />
+            <BrandPartnershipForm />
           </div>
         </section>
       </main>

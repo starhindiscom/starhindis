@@ -1,6 +1,7 @@
 import { Navbar, Footer } from '@/components';
 import { SectionHeader } from '@/components';
 import { baseMetadata } from '@/lib/seo';
+import { FounderContactForm } from '@/components/forms';
 
 export const metadata = baseMetadata('Founder — Mohammad Ishaq', 'Meet Mohammad Ishaq, the visionary founder behind Star Hindis — India’s largest multilingual digital media ecosystem.');
 
@@ -59,6 +60,7 @@ export default function FounderPage() {
                       ✉️ Email: starhindis.com@gmail.com
                     </a>
                   </div>
+                  <FounderContactForm />
                 </div>
               </div>
             </div>
