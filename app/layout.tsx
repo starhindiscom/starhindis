@@ -44,6 +44,16 @@ export default function RootLayout({
       <head />
       <body className={`${rajdhani.variable} ${playfair.variable} ${notoDevanagari.variable} font-sans`}>
         {children}
+        <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PXTF7C" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+            `,
+          }}
+        />
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7649377685423392"
