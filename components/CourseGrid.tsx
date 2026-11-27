@@ -20,12 +20,9 @@ function CourseCard({ course }: { course: (typeof COURSES)[number] }) {
   return (
     <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm hover:shadow-lg transition-all group hover:-translate-y-1">
       <div className="flex items-center gap-2 mb-4">
-        <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold ${course.badge === 'HOT' ? 'bg-red-100 text-red-700' : course.badge === 'NEW' ? 'bg-brand-100 text-brand-700' : 'bg-green-100 text-green-700'}`}>
+        <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold ${course.badge === 'HOT' ? 'bg-red-100 text-red-700 border border-red-200' : course.badge === 'NEW' ? 'bg-brand-100 text-brand-700 border border-brand-200' : course.badge === 'BESTSELLER' ? 'bg-amber-100 text-amber-800 border border-amber-200' : 'bg-green-100 text-green-700 border border-green-200'}`}>
           {course.badge}
         </span>
-        {course.badge === 'BESTSELLER' && (
-          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-amber-100 text-amber-700 text-[10px] font-bold">Bestseller</span>
-        )}
       </div>
       <div className="relative h-32 mb-4 overflow-hidden rounded-xl">
         <img src={course.image} alt={course.title} className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" />
