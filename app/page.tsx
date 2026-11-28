@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Navbar, Footer } from '@/components';
-import { Hero, SectionHeader, ChannelGrid, CourseGrid, CTA, SocialProof, WorldMap } from '@/components';
+import { Hero, SectionHeader, ChannelGrid, CourseGrid, CTA, SocialProof } from '@/components';
 import { baseMetadata } from '@/lib/seo';
 import { CHANNELS } from '@/lib/data';
 
@@ -16,8 +16,6 @@ export default function HomePage() {
       <Navbar />
       <main className="flex-grow">
         <Hero />
-
-        <WorldMap />
 
         <section className="py-20 border-y border-gray-100">
           <div className="container-section">
