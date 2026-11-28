@@ -41,7 +41,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en-IN" suppressHydrationWarning>
-      <head />
+      <head>
+        <meta name="google-adsense-account" content="ca-pub-7649377685423392" />
+      </head>
       <body className={`${rajdhani.variable} ${playfair.variable} ${notoDevanagari.variable} font-sans`}>
         {children}
         <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PXTF7C" />
